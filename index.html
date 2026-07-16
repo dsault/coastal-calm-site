@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coastal Calm</title>
+    <meta name="description" content="A simple static starter site ready for GitHub Pages and Cloudflare." />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <h1>Coastal Calm</h1>
+        <p class="tagline">A lightweight static site starter</p>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="card">
+        <h2>Welcome</h2>
+        <p>
+          Your static website is live-ready. This starter is intentionally minimal,
+          fast, and easy to customize.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>Next steps</h2>
+        <ol>
+          <li>Edit this page in <code>index.html</code>.</li>
+          <li>Tweak colors and layout in <code>styles.css</code>.</li>
+          <li>Enable GitHub Pages in repository settings.</li>
+          <li>Connect your domain through Cloudflare DNS.</li>
+        </ol>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <small>© <span id="year"></span> Coastal Calm</small>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
