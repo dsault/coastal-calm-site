@@ -12,7 +12,7 @@
       <div class="container header-inner">
         <a href="index.html" class="logo-link">
           <img
-            src="/cdn-cgi/image/width=200,quality=80,format=auto/assets/pictures/FullLogo_Transparent_NoBuffer.png"
+            src="assets/pictures/FullLogo_Transparent_NoBuffer.png"
             alt="D&D Coastal Calm Resort logo"
             class="logo"
           />
@@ -57,7 +57,6 @@
       // ============================================
       // GALLERY IMAGES
       // Add new photos here after uploading them to assets/gallery/
-      // Images are automatically compressed & optimized by Cloudflare
       // ============================================
       const galleryImages = [
         { src: "assets/pictures/air view.jpg", caption: "Resort aerial view" },
@@ -76,19 +75,13 @@
         // { src: "assets/gallery/your-new-photo.jpg", caption: "Description" },
       ];
 
-      // Cloudflare Image Transformation helper
-      // Automatically compresses, resizes, and serves modern formats (WebP/AVIF)
-      function optimizedSrc(path, width = 800) {
-        return `/cdn-cgi/image/width=${width},quality=75,format=auto,fit=scale-down/${path}`;
-      }
-
       // Render the gallery
       const grid = document.getElementById("gallery-grid");
       galleryImages.forEach((item) => {
         const figure = document.createElement("figure");
         figure.innerHTML = `
           <img
-            src="${optimizedSrc(item.src, 800)}"
+            src="${item.src}"
             alt="${item.caption}"
             loading="lazy"
             decoding="async"
