@@ -35,6 +35,7 @@
         <h2>Resort Gallery</h2>
         <p style="color: var(--muted); margin-top: 0;">
           A glimpse of life at Coastal Calm – the pool, gardens, amenities, team, and special moments.
+          Click any photo to view it larger.
         </p>
 
         <div class="gallery-grid" id="gallery-grid">
@@ -52,6 +53,17 @@
         <small>© <span id="year"></span> D&D Coastal Calm Resort</small>
       </div>
     </footer>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+      <div class="lightbox-content">
+        <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
+        <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous image">&#10094;</button>
+        <img class="lightbox-image" id="lightbox-image" src="" alt="" />
+        <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Next image">&#10095;</button>
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+      </div>
+    </div>
 
     <script>
       // ============================================
@@ -75,9 +87,9 @@
         // { src: "assets/gallery/your-new-photo.jpg", caption: "Description" },
       ];
 
-      // Render the gallery
+      // Render the gallery thumbnails
       const grid = document.getElementById("gallery-grid");
-      galleryImages.forEach((item) => {
+      galleryImages.forEach((item, index) => {
         const figure = document.createElement("figure");
         figure.innerHTML = `
           <img
@@ -88,7 +100,64 @@
           />
           <figcaption>${item.caption}</figcaption>
         `;
+        figure.addEventListener("click", () => openLightbox(index));
         grid.appendChild(figure);
+      });
+
+      // Lightbox logic
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImage = document.getElementById("lightbox-image");
+      const lightboxCaption = document.getElementById("lightbox-caption");
+      const btnClose = document.getElementById("lightbox-close");
+      const btnPrev = document.getElementById("lightbox-prev");
+      const btnNext = document.getElementById("lightbox-next");
+
+      let currentIndex = 0;
+
+      function openLightbox(index) {
+        currentIndex = index;
+        updateLightbox();
+        lightbox.classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove("open");
+        document.body.style.overflow = "";
+      }
+
+      function updateLightbox() {
+        const item = galleryImages[currentIndex];
+        lightboxImage.src = item.src;
+        lightboxImage.alt = item.caption;
+        lightboxCaption.textContent = item.caption;
+      }
+
+      function showPrev() {
+        currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+        updateLightbox();
+      }
+
+      function showNext() {
+        currentIndex = (currentIndex + 1) % galleryImages.length;
+        updateLightbox();
+      }
+
+      btnClose.addEventListener("click", closeLightbox);
+      btnPrev.addEventListener("click", showPrev);
+      btnNext.addEventListener("click", showNext);
+
+      // Close when clicking the dark background
+      lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) closeLightbox();
+      });
+
+      // Keyboard support
+      document.addEventListener("keydown", (e) => {
+        if (!lightbox.classList.contains("open")) return;
+        if (e.key === "Escape") closeLightbox();
+        if (e.key === "ArrowLeft") showPrev();
+        if (e.key === "ArrowRight") showNext();
       });
 
       document.getElementById("year").textContent = new Date().getFullYear();
