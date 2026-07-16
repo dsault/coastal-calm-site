@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rooms | Coastal Calm Resort</title>
+    <meta name="description" content="Explore room options at Coastal Calm Resort." />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <h1>Room Descriptions</h1>
+        <p class="tagline">Comfortable stays for every traveler</p>
+      </div>
+    </header>
+
+    <main class="container home-grid">
+      <section class="card">
+        <nav aria-label="Site navigation" class="page-nav">
+          <a href="index.html">Home</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="rooms.html" aria-current="page">Rooms</a>
+          <a href="booking.html">Booking</a>
+        </nav>
+      </section>
+
+      <section class="card">
+        <h2>Choose Your Stay</h2>
+        <div class="room-grid">
+          <article class="room-card">
+            <h3>Ocean View Suite</h3>
+            <p>Spacious suite with private balcony, king bed, and panoramic ocean views.</p>
+            <p><strong>Ideal for:</strong> Couples and special getaways</p>
+          </article>
+
+          <article class="room-card">
+            <h3>Family Garden Room</h3>
+            <p>Comfortable room near the gardens with two queen beds and seating area.</p>
+            <p><strong>Ideal for:</strong> Families and groups</p>
+          </article>
+
+          <article class="room-card">
+            <h3>Cozy Standard Room</h3>
+            <p>Well-appointed room with modern amenities and easy access to resort facilities.</p>
+            <p><strong>Ideal for:</strong> Solo travelers and short stays</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <small>© <span id="year"></span> Coastal Calm Resort</small>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
