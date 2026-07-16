@@ -3,55 +3,77 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gallery | Coastal Calm Resort</title>
-    <meta name="description" content="Browse photos of Coastal Calm Resort." />
+    <title>Gallery | D&D Coastal Calm Resort</title>
+    <meta name="description" content="Photos of D&D Coastal Calm Resort – pool, gardens, ocean views and more." />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header class="site-header">
-      <div class="container">
-        <h1>Resort Picture Gallery</h1>
-        <p class="tagline">A glimpse of your coastal escape</p>
-      </div>
-    </header>
-
-    <main class="container home-grid">
-      <section class="card">
-        <nav aria-label="Site navigation" class="page-nav">
+      <div class="container header-inner">
+        <a href="index.html" class="logo-link">
+          <img
+            src="assets/pictures/FullLogo_Transparent_NoBuffer.png"
+            alt="D&D Coastal Calm Resort logo"
+            class="logo"
+          />
+          <div class="logo-text">
+            D&D Coastal Calm
+            <span>Camotes Islands, Cebu</span>
+          </div>
+        </a>
+        <nav class="main-nav" aria-label="Main navigation">
           <a href="index.html">Home</a>
           <a href="gallery.html" aria-current="page">Gallery</a>
           <a href="rooms.html">Rooms</a>
           <a href="booking.html">Booking</a>
         </nav>
-      </section>
+      </div>
+    </header>
 
+    <main class="container home-grid">
       <section class="card">
-        <h2>Featured Photos</h2>
+        <h2>Resort Gallery</h2>
+        <p style="color: var(--muted); margin-top: 0;">
+          A glimpse of life at Coastal Calm – from the pool and gardens to the coastline.
+        </p>
+
         <div class="gallery-grid">
           <figure>
-            <img src="assets/pictures/air view.jpg" alt="Air view of Coastal Calm Resort" class="feature-image" />
+            <img src="assets/pictures/air view.jpg" alt="Aerial view of the resort" />
             <figcaption>Resort from above</figcaption>
           </figure>
           <figure>
-            <img src="assets/pictures/gallery-gazebo.jpeg" alt="Gazebo at Coastal Calm Resort" class="feature-image" />
+            <img src="assets/pictures/gallery-pool.jpeg" alt="Infinity pool area" />
+            <figcaption>Infinity pool</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/pictures/gallery-gazebo.jpeg" alt="Garden gazebo" />
             <figcaption>Garden gazebo</figcaption>
           </figure>
           <figure>
-            <img src="assets/pictures/WhatsApp Image 2026-07-13 at 10.11.16.jpeg" alt="Upcoming event scene" class="feature-image" />
-            <figcaption>Upcoming event preview</figcaption>
+            <img src="assets/pictures/gallery-hearts.jpeg" alt="Resort grounds" />
+            <figcaption>Resort grounds</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/pictures/WhatsApp Image 2026-07-13 at 10.11.16.jpeg" alt="Event atmosphere" />
+            <figcaption>Event atmosphere</figcaption>
           </figure>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <div class="container">
-        <small>© <span id="year"></span> Coastal Calm Resort</small>
+      <div class="container footer-inner">
+        <strong>D&D Coastal Calm Resort</strong>
+        <p class="footer-location">
+          Mercedes, Poro · Camotes Islands, Cebu, Philippines
+        </p>
+        <small>© <span id="year"></span> D&D Coastal Calm Resort</small>
       </div>
     </footer>
 
     <script>
-      document.getElementById('year').textContent = new Date().getFullYear();
+      document.getElementById("year").textContent = new Date().getFullYear();
     </script>
   </body>
 </html>

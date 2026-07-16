@@ -3,78 +3,134 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Coastal Calm Resort</title>
+    <title>D&D Coastal Calm Resort | Camotes Islands</title>
     <meta
       name="description"
-      content="Coastal Calm Resort: oceanfront escape with elegant rooms, events, and easy online booking."
+      content="Boutique oceanfront eco-resort in Camotes Islands, Cebu. Infinity pool, beach access, comfortable rooms, events, and warm hospitality."
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header class="site-header">
-      <div class="container">
-        <h1>Coastal Calm Resort</h1>
-        <p class="tagline">Relax by the sea in comfort and style</p>
+      <div class="container header-inner">
+        <a href="index.html" class="logo-link">
+          <img
+            src="assets/pictures/FullLogo_Transparent_NoBuffer.png"
+            alt="D&D Coastal Calm Resort logo"
+            class="logo"
+          />
+          <div class="logo-text">
+            D&D Coastal Calm
+            <span>Camotes Islands, Cebu</span>
+          </div>
+        </a>
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="index.html" aria-current="page">Home</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="rooms.html">Rooms</a>
+          <a href="booking.html">Booking</a>
+        </nav>
       </div>
     </header>
 
     <main class="container home-grid">
-      <section class="card event-card event-card-featured">
+      <!-- Hero -->
+      <section class="card hero-card">
+        <img
+          src="assets/pictures/air view.jpg"
+          alt="Aerial view of D&D Coastal Calm Resort"
+          class="hero-image"
+        />
+        <div class="hero-content">
+          <h2>Your Oceanfront Escape in Camotes</h2>
+          <p>
+            A boutique eco-resort nestled along the coast of Mercedes, Poro.
+            Wake up to sea views, swim in the infinity pool, and enjoy genuine
+            island hospitality.
+          </p>
+          <a href="booking.html" class="btn">Book Your Stay</a>
+          <a href="gallery.html" class="btn btn-secondary">View Gallery</a>
+        </div>
+      </section>
+
+      <!-- Upcoming Event -->
+      <section class="card event-card">
         <div class="event-layout">
           <div class="event-main">
             <h2>Next Upcoming Event</h2>
             <h3 class="event-title">D' Babylon Vernz</h3>
             <p class="event-datetime"><strong>Saturday, July 18 · 8:00 PM</strong></p>
             <p class="event-followup">with Disco to follow</p>
+            <p style="margin-top: 1rem; margin-bottom: 0;">
+              Join us for a lively evening of music and good vibes by the coast.
+            </p>
           </div>
-          <aside class="event-side" aria-label="Resort highlights">
+          <aside class="event-side" aria-label="Event highlights">
             <img
               src="assets/pictures/next_event.jpg"
-              alt="Resort logo"
+              alt="Event poster"
               class="event-logo"
             />
             <img
-              src="assets/pictures/air view.jpg"
-              alt="Air view of Coastal Calm Resort"
+              src="assets/pictures/gallery-pool.jpeg"
+              alt="Resort pool area"
               class="event-side-image"
             />
           </aside>
         </div>
       </section>
 
-      <section class="card hero-card">
-        <h2>Welcome to Coastal Calm</h2>
-        <img
-          src="assets/pictures/air view.jpg"
-          alt="Air view of Coastal Calm Resort"
-          class="feature-image"
-        />
-        <p>
-          Experience a refreshing coastal getaway with beautiful views, comfortable
-          accommodations, and warm hospitality.
-        </p>
+      <!-- Key Features -->
+      <section class="card">
+        <h2>Why Stay With Us</h2>
+        <div class="features-grid">
+          <div class="feature-item">
+            <h3>Oceanfront Location</h3>
+            <p>Direct coastal access with beautiful sea views and sea breeze.</p>
+          </div>
+          <div class="feature-item">
+            <h3>Infinity Pool</h3>
+            <p>Relax and cool off with panoramic ocean views from the pool.</p>
+          </div>
+          <div class="feature-item">
+            <h3>Boutique Rooms</h3>
+            <p>Comfortable, well-appointed rooms designed for restful stays.</p>
+          </div>
+          <div class="feature-item">
+            <h3>Events & Gatherings</h3>
+            <p>Live music, celebrations, and special evenings by the coast.</p>
+          </div>
+        </div>
       </section>
 
-      <section class="card links-card">
-        <h2>Explore Coastal Calm</h2>
-        <nav aria-label="Quick links">
-          <ul class="quick-links">
-            <li><a href="gallery.html">Resort Picture Gallery</a></li>
-            <li><a href="rooms.html">Room Descriptions</a></li>
-            <li><a href="booking.html">Booking System</a></li>
-          </ul>
-        </nav>
+      <!-- Quick Links -->
+      <section class="card">
+        <h2>Explore the Resort</h2>
+        <div class="features-grid">
+          <a href="rooms.html" class="btn" style="text-align: center;">Room Options</a>
+          <a href="gallery.html" class="btn" style="text-align: center;">Photo Gallery</a>
+          <a href="booking.html" class="btn" style="text-align: center;">Reserve Now</a>
+        </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <div class="container">
-        <small>© <span id="year"></span> Coastal Calm Resort</small>
+      <div class="container footer-inner">
+        <strong>D&D Coastal Calm Resort</strong>
+        <p class="footer-location">
+          Mercedes, Poro · Camotes Islands, Cebu, Philippines
+        </p>
+        <p>
+          <a href="booking.html">Book a stay</a> ·
+          <a href="gallery.html">Gallery</a> ·
+          <a href="rooms.html">Rooms</a>
+        </p>
+        <small>© <span id="year"></span> D&D Coastal Calm Resort</small>
       </div>
     </footer>
 
     <script>
-      document.getElementById('year').textContent = new Date().getFullYear();
+      document.getElementById("year").textContent = new Date().getFullYear();
     </script>
   </body>
 </html>
