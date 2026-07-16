@@ -37,27 +37,8 @@
           A glimpse of life at Coastal Calm – from the pool and gardens to the coastline.
         </p>
 
-        <div class="gallery-grid">
-          <figure>
-            <img src="assets/pictures/air view.jpg" alt="Aerial view of the resort" />
-            <figcaption>Resort from above</figcaption>
-          </figure>
-          <figure>
-            <img src="assets/pictures/gallery-pool.jpeg" alt="Infinity pool area" />
-            <figcaption>Infinity pool</figcaption>
-          </figure>
-          <figure>
-            <img src="assets/pictures/gallery-gazebo.jpeg" alt="Garden gazebo" />
-            <figcaption>Garden gazebo</figcaption>
-          </figure>
-          <figure>
-            <img src="assets/pictures/gallery-hearts.jpeg" alt="Resort grounds" />
-            <figcaption>Resort grounds</figcaption>
-          </figure>
-          <figure>
-            <img src="assets/pictures/WhatsApp Image 2026-07-13 at 10.11.16.jpeg" alt="Event atmosphere" />
-            <figcaption>Event atmosphere</figcaption>
-          </figure>
+        <div class="gallery-grid" id="gallery-grid">
+          <!-- Images are loaded from the list below -->
         </div>
       </section>
     </main>
@@ -73,6 +54,34 @@
     </footer>
 
     <script>
+      // ============================================
+      // GALLERY IMAGES
+      // Add new photos here after uploading them to assets/gallery/
+      // ============================================
+      const galleryImages = [
+        // Existing photos (kept in assets/pictures for now)
+        { src: "assets/pictures/air view.jpg", caption: "Resort from above" },
+        { src: "assets/pictures/gallery-pool.jpeg", caption: "Infinity pool" },
+        { src: "assets/pictures/gallery-gazebo.jpeg", caption: "Garden gazebo" },
+        { src: "assets/pictures/gallery-hearts.jpeg", caption: "Resort grounds" },
+        { src: "assets/pictures/WhatsApp Image 2026-07-13 at 10.11.16.jpeg", caption: "Event atmosphere" },
+
+        // ---- Add new photos below this line ----
+        // Example:
+        // { src: "assets/gallery/my-new-photo.jpg", caption: "Sunset over the pool" },
+      ];
+
+      // Render the gallery
+      const grid = document.getElementById("gallery-grid");
+      galleryImages.forEach((item) => {
+        const figure = document.createElement("figure");
+        figure.innerHTML = `
+          <img src="${item.src}" alt="${item.caption}" loading="lazy" />
+          <figcaption>${item.caption}</figcaption>
+        `;
+        grid.appendChild(figure);
+      });
+
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>
   </body>
