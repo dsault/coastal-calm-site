@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="eventTitle eventDesc">
+  <title id="eventTitle">Moonlight Dinner Event</title>
+  <desc id="eventDesc">Stylized seaside terrace dinner setup with lights and tables.</desc>
+  <rect width="800" height="500" fill="#112e3a"/>
+  <circle cx="135" cy="92" r="42" fill="#f0f5ff"/>
+  <rect y="315" width="800" height="185" fill="#205c70"/>
+  <rect y="285" width="800" height="70" fill="#173945"/>
+  <path d="M110 285h580l-36 70H145Z" fill="#7e5b3b"/>
+  <g fill="#fff0c4">
+    <circle cx="190" cy="160" r="8"/>
+    <circle cx="245" cy="142" r="8"/>
+    <circle cx="300" cy="168" r="8"/>
+    <circle cx="355" cy="150" r="8"/>
+    <circle cx="410" cy="168" r="8"/>
+    <circle cx="465" cy="145" r="8"/>
+    <circle cx="520" cy="165" r="8"/>
+    <circle cx="575" cy="146" r="8"/>
+  </g>
+  <path d="M175 165c110-36 210-36 320 0s110 36 140 22" fill="none" stroke="#fff0c4" stroke-width="4"/>
+  <g>
+    <rect x="225" y="240" width="135" height="20" rx="10" fill="#f6f6f6"/>
+    <rect x="250" y="258" width="85" height="52" rx="10" fill="#f6f6f6"/>
+    <rect x="282" y="220" width="20" height="22" rx="10" fill="#ffd46f"/>
+  </g>
+  <g>
+    <rect x="445" y="240" width="135" height="20" rx="10" fill="#f6f6f6"/>
+    <rect x="470" y="258" width="85" height="52" rx="10" fill="#f6f6f6"/>
+    <rect x="502" y="220" width="20" height="22" rx="10" fill="#ffd46f"/>
+  </g>
+  <text x="400" y="445" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="32" fill="#ffffff">Upcoming Event</text>
+</svg>

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="resortTitle resortDesc">
+  <title id="resortTitle">Coastal Calm Resort</title>
+  <desc id="resortDesc">Stylized seaside resort with ocean, sun, and palm trees.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#bdefff"/>
+      <stop offset="100%" stop-color="#edf9ff"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1d8da0"/>
+      <stop offset="100%" stop-color="#79cfdd"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#sky)"/>
+  <circle cx="650" cy="95" r="48" fill="#ffd681"/>
+  <rect y="320" width="800" height="180" fill="url(#water)"/>
+  <path d="M0 325c115-25 205-25 320 0s205 25 320 0 115-25 160-12v187H0Z" fill="#44afc0"/>
+  <rect x="180" y="170" width="250" height="135" rx="18" fill="#f8f3ea"/>
+  <rect x="240" y="120" width="130" height="70" rx="14" fill="#f8f3ea"/>
+  <rect x="280" y="205" width="48" height="100" rx="8" fill="#86c7d5"/>
+  <rect x="210" y="210" width="45" height="38" rx="8" fill="#86c7d5"/>
+  <rect x="350" y="210" width="45" height="38" rx="8" fill="#86c7d5"/>
+  <path d="M112 315c18-64 43-102 76-114-5 37-1 73 12 109Z" fill="#2a9b63"/>
+  <path d="M150 315c15-57 38-89 70-97-4 31-1 62 11 97Z" fill="#36b775"/>
+  <path d="M610 315c17-55 40-90 69-104-4 34 0 68 13 104Z" fill="#279563"/>
+  <path d="M643 315c13-48 34-76 61-85-2 27 1 55 12 85Z" fill="#41ba78"/>
+  <text x="400" y="445" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="34" fill="#ffffff">Coastal Calm Resort</text>
+</svg>
