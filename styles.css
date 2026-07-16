@@ -192,7 +192,7 @@ h1, h2, h3 {
 
 .event-layout {
   display: grid;
-  grid-template-columns: 1.4fr 1fr;
+  grid-template-columns: 1.3fr 1fr;
   gap: 1.25rem;
   align-items: center;
 }
@@ -216,20 +216,41 @@ h1, h2, h3 {
 .event-side {
   display: grid;
   gap: 0.75rem;
+  justify-items: center;
 }
 
 .event-logo {
-  max-width: 160px;
+  width: 100%;
+  max-width: 320px;
   height: auto;
-  border-radius: 10px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 16px rgba(25, 67, 94, 0.1);
 }
 
 .event-side-image {
   width: 100%;
-  max-height: 180px;
+  max-height: 220px;
   object-fit: cover;
   border-radius: 12px;
   border: 1px solid var(--border);
+}
+
+/* ========== Restaurant ========== */
+.restaurant-card {
+  border: 2px solid #c5e0d0;
+  background: linear-gradient(135deg, #f8fffb 0%, #f0f9f4 100%);
+}
+
+.restaurant-tagline {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--accent-dark);
+  margin: 0.3rem 0 0.6rem;
+}
+
+.restaurant-image {
+  max-height: 240px;
 }
 
 /* ========== Features ========== */
@@ -381,5 +402,9 @@ h1, h2, h3 {
 
   .logo {
     height: 46px;
+  }
+
+  .event-logo {
+    max-width: 280px;
   }
 }
