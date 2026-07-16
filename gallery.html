@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gallery | D&D Coastal Calm Resort</title>
-    <meta name="description" content="Photos of D&D Coastal Calm Resort – pool, gardens, ocean views, team and more." />
+    <meta name="description" content="Photos of D&D Coastal Calm Resort – infinity pool, ocean views, gardens, amenities, team and more." />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -34,7 +34,7 @@
       <section class="card">
         <h2>Resort Gallery</h2>
         <p style="color: var(--muted); margin-top: 0;">
-          A glimpse of life at Coastal Calm – the pool, gardens, amenities, team, and special moments.
+          A glimpse of life at Coastal Calm – the infinity pool, ocean views, gardens, amenities, and our team.
           Click any photo to view it larger.
         </p>
 
@@ -71,17 +71,18 @@
       // Add new photos here after uploading them to assets/gallery/
       // ============================================
       const galleryImages = [
-        { src: "assets/pictures/air view.jpg", caption: "Resort aerial view" },
-        { src: "assets/gallery/the_pool.jpeg", caption: "Infinity pool with ocean view & water slide" },
-        { src: "assets/gallery/gallery-pool.jpeg", caption: "Infinity pool at dusk" },
-        { src: "assets/gallery/jacuzzi.jpeg", caption: "Oceanview jacuzzi" },
-        { src: "assets/gallery/hands_fountain.jpeg", caption: "Iconic hands sculpture at sunset" },
-        { src: "assets/gallery/gallery-gazebo.jpeg", caption: "Bamboo gazebo – perfect for gatherings" },
-        { src: "assets/gallery/billiards.jpeg", caption: "Billiards area under the thatched roof" },
-        { src: "assets/gallery/hearts.jpeg", caption: "Heart-shaped seating photo spot" },
-        { src: "assets/gallery/gallery-hearts.jpeg", caption: "Resort grounds & photo moments" },
-        { src: "assets/gallery/ribbon_cutting.jpeg", caption: "Soft opening ribbon cutting" },
-        { src: "assets/gallery/the_team.jpeg", caption: "Our wonderful team" },
+        { src: "assets/pictures/air view.jpg", caption: "Aerial view of the resort along the Camotes coast" },
+        { src: "assets/gallery/the_pool.jpeg", caption: "Infinity pool with ocean horizon and water slide" },
+        { src: "assets/gallery/gallery-pool.jpeg", caption: "Infinity pool at dusk overlooking the sea" },
+        { src: "assets/pictures/WhatsApp Image 2026-07-13 at 10.11.16.jpeg", caption: "Poolside loungers with panoramic sea views" },
+        { src: "assets/gallery/jacuzzi.jpeg", caption: "Oceanview jacuzzi at sunset" },
+        { src: "assets/gallery/hands_fountain.jpeg", caption: "Iconic hands sculpture against the evening sky" },
+        { src: "assets/gallery/gallery-gazebo.jpeg", caption: "Bamboo gazebo – ideal for gatherings and shade" },
+        { src: "assets/gallery/billiards.jpeg", caption: "Billiards under the thatched roof by the coast" },
+        { src: "assets/gallery/hearts.jpeg", caption: "Heart-shaped seating – a favorite photo spot" },
+        { src: "assets/gallery/gallery-hearts.jpeg", caption: "Resort grounds and photo moments" },
+        { src: "assets/gallery/ribbon_cutting.jpeg", caption: "Soft opening ribbon-cutting ceremony" },
+        { src: "assets/gallery/the_team.jpeg", caption: "Our team – the heart of Coastal Calm" },
 
         // ---- Add new photos below this line ----
         // { src: "assets/gallery/your-new-photo.jpg", caption: "Description" },
@@ -147,12 +148,10 @@
       btnPrev.addEventListener("click", showPrev);
       btnNext.addEventListener("click", showNext);
 
-      // Close when clicking the dark background
       lightbox.addEventListener("click", (e) => {
         if (e.target === lightbox) closeLightbox();
       });
 
-      // Keyboard support
       document.addEventListener("keydown", (e) => {
         if (!lightbox.classList.contains("open")) return;
         if (e.key === "Escape") closeLightbox();
