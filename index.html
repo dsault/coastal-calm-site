@@ -3,41 +3,63 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Coastal Calm</title>
-    <meta name="description" content="A simple static starter site ready for GitHub Pages and Cloudflare." />
+    <title>Coastal Calm Resort</title>
+    <meta
+      name="description"
+      content="Coastal Calm Resort: oceanfront escape with elegant rooms, events, and easy online booking."
+    />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header class="site-header">
       <div class="container">
-        <h1>Coastal Calm</h1>
-        <p class="tagline">A lightweight static site starter</p>
+        <h1>Coastal Calm Resort</h1>
+        <p class="tagline">Relax by the sea in comfort and style</p>
       </div>
     </header>
 
-    <main class="container">
-      <section class="card">
-        <h2>Welcome</h2>
+    <main class="container home-grid">
+      <section class="card hero-card">
+        <h2>Welcome to Coastal Calm</h2>
+        <img
+          src="assets/pictures/air view.jpg"
+          alt="Air view of Coastal Calm Resort"
+          class="feature-image"
+        />
         <p>
-          Your static website is live-ready. This starter is intentionally minimal,
-          fast, and easy to customize.
+          Experience a refreshing coastal getaway with beautiful views, comfortable
+          accommodations, and warm hospitality.
         </p>
       </section>
 
-      <section class="card">
-        <h2>Next steps</h2>
-        <ol>
-          <li>Edit this page in <code>index.html</code>.</li>
-          <li>Tweak colors and layout in <code>styles.css</code>.</li>
-          <li>Enable GitHub Pages in repository settings.</li>
-          <li>Connect your domain through Cloudflare DNS.</li>
-        </ol>
+      <section class="card event-card">
+        <h2>Next Upcoming Event</h2>
+        <img
+          src="assets/pictures/WhatsApp Image 2026-07-13 at 10.11.16.jpeg"
+          alt="Upcoming event at Coastal Calm Resort"
+          class="feature-image"
+        />
+        <p>
+          Join us for our next special event. Details and schedule will be posted
+          soon—stay tuned!
+        </p>
+      </section>
+
+      <section class="card links-card">
+        <h2>Explore Coastal Calm</h2>
+        <nav aria-label="Quick links">
+          <ul class="quick-links">
+            <li><a href="gallery.html">Resort Picture Gallery</a></li>
+            <li><a href="rooms.html">Room Descriptions</a></li>
+            <li><a href="booking.html">Booking System</a></li>
+          </ul>
+        </nav>
       </section>
     </main>
 
     <footer class="site-footer">
       <div class="container">
-        <small>© <span id="year"></span> Coastal Calm</small>
+        <small>© <span id="year"></span> Coastal Calm Resort</small>
       </div>
     </footer>
 
