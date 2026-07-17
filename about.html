@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About | D&D Coastal Calm Resort</title>
+    <meta name="description" content="The story of D&D Coastal Calm Resort — from its origins as a pearl farm through World War II to its current life as an eco-friendly boutique resort." />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html" class="logo-link">
+          <img
+            src="assets/pictures/FullLogo_Transparent_NoBuffer.png"
+            alt="D&D Coastal Calm Resort logo"
+            class="logo"
+          />
+          <div class="logo-text">
+            D&D Coastal Calm
+            <span>Camotes Islands, Cebu</span>
+          </div>
+        </a>
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a href="about.html" aria-current="page">About</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="rooms.html">Rooms</a>
+          <a href="booking.html">Booking</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container home-grid">
+      <section class="card">
+        <h2>Our Story</h2>
+        <p style="color: var(--muted); margin-top: 0; max-width: 70ch;">
+          Long before it became a sanctuary by the sea, this stretch of coastline in Mercedes, Poro had already witnessed generations of life, labor, and secrecy.
+        </p>
+
+        <div style="margin-top: 2rem;">
+          <h3>The Pearl Farm Era</h3>
+          <p>
+            In its earliest modern chapter, the land served as a working <strong>pearl farm</strong>. Japanese pearl cultivation techniques found a natural home in the calm, protected waters of the Camotes. For years, the sea here quietly nurtured oysters beneath floating rafts, producing luminous pearls that traveled far beyond the islands. The patient rhythms of the farm — the careful tending of the beds, the waiting for nature to work its quiet magic — left their mark on the shoreline and in local memory.
+          </p>
+        </div>
+
+        <div style="margin-top: 2rem;">
+          <h3>World War II and the Japanese Occupation</h3>
+          <p>
+            During the <strong>Japanese occupation</strong> of the Philippines in World War II, the Camotes Islands fell under military control. Life for local residents became one of fear and uncertainty. Japanese forces maintained a presence across Poro Island, and stories of patrols, restrictions, and sudden violence were common.
+          </p>
+          <p>
+            Many families sought safety in the island’s natural caves — including those found along this very coastline. These shelters became temporary sanctuaries where people hid from patrols and waited for safer times. Some of the caves on and near the property still carry these stories in local memory. The fighting that eventually came to Poro Island in early 1945 was part of the final Allied push to liberate the Camotes.
+          </p>
+        </div>
+
+        <div style="margin-top: 2rem;">
+          <h3>Whispers of the Past</h3>
+          <p>
+            After the war, as the islands slowly returned to a quieter rhythm, the property continued to change hands. With each transition, new layers of mystery were added. Over the decades, local oral history has preserved stories of a more enigmatic past — rumors of <strong>forbidden access</strong>, areas that were kept strictly off-limits, and the discovery of <strong>hidden rooms</strong> in older structures on the land.
+          </p>
+          <p>
+            These spaces reportedly had no clear official purpose. Elders still speak in hushed tones of sudden restrictions on movement and of things found that were never fully explained. While much of this remains in the realm of rumor and local legend, these tales have become part of the property’s enduring character, adding a quiet sense of mystery to its long coastal history.
+          </p>
+        </div>
+
+        <div style="margin-top: 2rem;">
+          <h3>A New Chapter</h3>
+          <p>
+            Today, we are writing a new chapter. <strong>D&D Coastal Calm</strong> is being thoughtfully redeveloped as a sustainable, eco-friendly boutique resort. Rather than erasing what came before, we are working in harmony with the land and sea. Solar power, responsible water systems, and low-impact design now guide our approach.
+          </p>
+          <p>
+            What was once a pearl farm, a wartime refuge, and later a place wrapped in local mystery and rumor, is now becoming a sanctuary — a peaceful destination where guests can slow down, connect with nature, and experience the quiet beauty of the Camotes as it was always meant to be experienced.
+          </p>
+          <p style="margin-top: 1.5rem; font-style: italic;">
+            This land has held many stories.<br>
+            We are honored to help shape the next one.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <strong>D&D Coastal Calm Resort</strong>
+        <p class="footer-location">
+          Mercedes, Poro · Camotes Islands, Cebu, Philippines
+        </p>
+        <small>© <span id="year"></span> D&D Coastal Calm Resort</small>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
