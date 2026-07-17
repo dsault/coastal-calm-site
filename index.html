@@ -117,7 +117,7 @@
               gazebo, or with a direct view of the sea.
             </p>
             <a href="assets/pictures/menu_.pdf" class="btn" target="_blank" rel="noopener">
-              View Full Menu (PDF)
+              Download PDF version
             </a>
           </div>
           <aside class="event-side" aria-label="Dining highlight">
@@ -131,8 +131,22 @@
           </aside>
         </div>
 
+        <!-- Prominent standalone menu -->
+        <div style="margin: 1.25rem 0 1.5rem;">
+          <h3 style="margin-bottom: 0.6rem; color: var(--accent-dark); font-size: 1.15rem;">Our Menu</h3>
+          <img
+            src="assets/pictures/menu.jpg"
+            alt="Full Restaurant Menu"
+            style="width: 100%; max-width: 680px; border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 6px 24px rgba(0,0,0,0.1); cursor: pointer;"
+            onclick="openLightbox(0)"
+          />
+          <p style="margin-top: 0.6rem; font-size: 0.92rem; color: var(--muted);">
+            Tap to enlarge • <a href="assets/pictures/menu_.pdf" target="_blank" rel="noopener">Download PDF version</a>
+          </p>
+        </div>
+
         <div class="food-photos" id="food-photos">
-          <!-- filled by script -->
+          <!-- filled by script (food photos only) -->
         </div>
       </section>
 
@@ -189,8 +203,8 @@
       </div>
     </footer>
 
-    <!-- Lightbox for food photos -->
-    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Food photo viewer">
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
       <div class="lightbox-content">
         <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
         <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous image">&#10094;</button>
@@ -204,6 +218,7 @@
       document.getElementById("year").textContent = new Date().getFullYear();
 
       const foodImages = [
+        { src: "assets/pictures/menu.jpg", caption: "Full Restaurant Menu" },
         { src: "assets/gallery/77f6562d-9c1e-4b44-a29b-41f0f42cc156.jpg", caption: "Grilled steak with mashed potato and fresh salad" },
         { src: "assets/gallery/ea127f2b-21a8-48b5-99b6-c63e3c2670cb.jpg", caption: "D&D Special Pizza – loaded with toppings" },
         { src: "assets/gallery/3a6ba756-8d3b-4aa4-99f0-14fb407df770.jpg", caption: "Hawaiian pizza – ham, pineapple & melted cheese" },
@@ -217,6 +232,7 @@
 
       const foodGrid = document.getElementById("food-photos");
       foodImages.forEach((item, index) => {
+        if (index === 0) return; // skip menu in the small grid - it's shown large above
         const img = document.createElement("img");
         img.src = item.src;
         img.alt = item.caption;
