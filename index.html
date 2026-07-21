@@ -29,6 +29,7 @@
           <a href="about.html">About</a>
           <a href="gallery.html">Gallery</a>
           <a href="rooms.html">Rooms</a>
+          <a href="events.html">Events</a>
           <a href="booking.html">Booking</a>
         </nav>
       </div>
@@ -87,6 +88,7 @@
             <p style="margin-top: 1rem; margin-bottom: 0;">
               Enjoy a night of great music, good vibes &amp; beachfront fun!
             </p>
+            <a href="events.html" class="btn" style="margin-top: 1rem;">View Event Venues</a>
           </div>
           <aside class="event-side" aria-label="Event poster">
             <img
@@ -97,6 +99,40 @@
             />
           </aside>
         </div>
+      </section>
+
+      <!-- Amenities -->
+      <section class="card">
+        <h2>Resort Amenities</h2>
+        <div class="features-grid">
+          <div class="feature-item">
+            <h3>Infinity Pool & Water Slide</h3>
+            <p>Ocean-view infinity pool with loungers and water slide.</p>
+          </div>
+          <div class="feature-item">
+            <h3>Restaurant & Scenic Dining</h3>
+            <p>Open 8 AM–9 PM. Food available throughout the resort.</p>
+          </div>
+          <div class="feature-item">
+            <h3>Event Tent (up to 200)</h3>
+            <p>Large covered space for weddings, parties & celebrations.</p>
+          </div>
+          <div class="feature-item">
+            <h3>Function Hall (50–100)</h3>
+            <p>Ideal for conferences, seminars and mid-sized events.</p>
+          </div>
+          <div class="feature-item">
+            <h3>Karaoke Room</h3>
+            <p>Private karaoke space for groups and celebrations.</p>
+          </div>
+          <div class="feature-item">
+            <h3>Pool Deck & Bamboo Areas</h3>
+            <p>Flexible outdoor spaces with tents for smaller groups.</p>
+          </div>
+        </div>
+        <p style="margin-top: 1.25rem;">
+          <a href="events.html" class="btn">Explore Event Venues</a>
+        </p>
       </section>
 
       <!-- Infinity Pool -->
@@ -157,7 +193,6 @@
           </aside>
         </div>
 
-        <!-- Prominent standalone menu -->
         <div style="margin: 1.25rem 0 1.5rem;">
           <h3 style="margin-bottom: 0.6rem; color: var(--accent-dark); font-size: 1.15rem;">Our Menu</h3>
           <img
@@ -171,9 +206,22 @@
           </p>
         </div>
 
-        <div class="food-photos" id="food-photos">
-          <!-- filled by script (food photos only) -->
-        </div>
+        <div class="food-photos" id="food-photos"></div>
+      </section>
+
+      <!-- How to Get Here -->
+      <section class="card">
+        <h2>How to Get Here</h2>
+        <p>
+          <strong>Location:</strong> Mahaba Road, Mercedes, Poro, Camotes Islands, Cebu
+        </p>
+        <p>
+          From Cebu City, take a ferry or fastcraft to <strong>Consuelo Port</strong> (Poro).
+          From the port, it is approximately 20–30 minutes by tricycle or motorcycle to the resort.
+        </p>
+        <p>
+          We recommend arranging transport in advance or messaging us for assistance upon arrival.
+        </p>
       </section>
 
       <!-- Why Stay With Us -->
@@ -194,11 +242,11 @@
           </div>
           <div class="feature-item">
             <h3>Boutique Rooms</h3>
-            <p>Seven room types — Standard, Deluxe, Ocean View, Family, and Adjoining — all with queen beds for a comfortable stay.</p>
+            <p>Seven room types — Standard, Deluxe, Ocean View, Family, and Adjoining — all with queen beds.</p>
           </div>
           <div class="feature-item">
             <h3>Events & Gatherings</h3>
-            <p>Live music, celebrations, and special evenings by the coast.</p>
+            <p>Venues for up to 200 guests — perfect for weddings, parties and team building.</p>
           </div>
         </div>
       </section>
@@ -208,6 +256,7 @@
         <h2>Explore the Resort</h2>
         <div class="features-grid">
           <a href="rooms.html" class="btn" style="text-align: center;">Room Options</a>
+          <a href="events.html" class="btn" style="text-align: center;">Events & Venues</a>
           <a href="gallery.html" class="btn" style="text-align: center;">Photo Gallery</a>
           <a href="about.html" class="btn" style="text-align: center;">Our Story</a>
           <a href="booking.html" class="btn" style="text-align: center;">Reserve Now</a>
@@ -223,10 +272,10 @@
         </p>
         <p>
           <a href="booking.html">Book a stay</a> ·
+          <a href="events.html">Events</a> ·
           <a href="gallery.html">Gallery</a> ·
           <a href="rooms.html">Rooms</a> ·
-          <a href="about.html">Our Story</a> ·
-          <a href="assets/pictures/menu_.pdf" target="_blank" rel="noopener">Menu</a>
+          <a href="about.html">Our Story</a>
         </p>
         <p style="margin-top: 0.75rem;">
           <a href="https://www.facebook.com/profile.php?id=61582908533946" target="_blank" rel="noopener">Facebook</a> ·
@@ -265,7 +314,7 @@
 
       const foodGrid = document.getElementById("food-photos");
       foodImages.forEach((item, index) => {
-        if (index === 0) return; // skip menu in the small grid
+        if (index === 0) return;
         const img = document.createElement("img");
         img.src = item.src;
         img.alt = item.caption;
