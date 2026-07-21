@@ -11,20 +11,15 @@
     <header class="site-header">
       <div class="container header-inner">
         <a href="index.html" class="logo-link">
-          <img
-            src="assets/pictures/FullLogo_Transparent_NoBuffer.png"
-            alt="D&D Coastal Calm Resort logo"
-            class="logo"
-          />
-          <div class="logo-text">
-            D&D Coastal Calm
-            <span>Camotes Islands, Cebu</span>
-          </div>
+          <img src="assets/pictures/FullLogo_Transparent_NoBuffer.png" alt="D&D Coastal Calm Resort logo" class="logo" />
+          <div class="logo-text">D&D Coastal Calm Resort<span>Camotes Islands, Cebu</span></div>
         </a>
         <nav class="main-nav" aria-label="Main navigation">
           <a href="index.html">Home</a>
+          <a href="about.html">About</a>
           <a href="gallery.html">Gallery</a>
           <a href="rooms.html">Rooms</a>
+          <a href="events.html">Events</a>
           <a href="booking.html" aria-current="page">Booking</a>
         </nav>
       </div>
@@ -33,63 +28,48 @@
     <main class="container home-grid">
       <section class="card">
         <h2>Request a Reservation</h2>
-        <p style="color: var(--muted); margin-top: 0;">
-          Tell us your preferred dates and room type. We will confirm availability
-          and get back to you shortly.
-        </p>
-
+        <p style="color: var(--muted); margin-top: 0;">Tell us your preferred dates and room type. We will confirm availability and get back to you shortly.</p>
         <form class="booking-form" action="#" method="post">
           <label for="name">Full name</label>
           <input id="name" name="name" type="text" required />
-
           <label for="email">Email</label>
           <input id="email" name="email" type="email" required />
-
           <label for="phone">Phone / WhatsApp</label>
           <input id="phone" name="phone" type="tel" />
-
           <label for="checkin">Check-in date</label>
           <input id="checkin" name="checkin" type="date" required />
-
           <label for="checkout">Check-out date</label>
           <input id="checkout" name="checkout" type="date" required />
-
           <label for="roomType">Room type</label>
           <select id="roomType" name="roomType" required>
             <option value="">Select a room</option>
-            <option>Ocean View Suite</option>
-            <option>Family Garden Room</option>
-            <option>Cozy Standard Room</option>
+            <option>Standard Room</option>
+            <option>Deluxe Room</option>
+            <option>Deluxe with Jet Bath</option>
+            <option>Deluxe Ocean View</option>
+            <option>Deluxe Deck</option>
+            <option>Family Room</option>
+            <option>Adjoining Rooms</option>
           </select>
-
           <label for="guests">Number of guests</label>
           <input id="guests" name="guests" type="number" min="1" max="10" value="2" />
-
           <label for="notes">Special requests</label>
           <textarea id="notes" name="notes" rows="4" placeholder="Let us know anything we should prepare..."></textarea>
-
           <button type="submit" class="btn">Submit Booking Request</button>
         </form>
-
-        <p class="form-note">
-          This form is currently a demo. I can connect it to email or a simple backend
-          so you actually receive the requests.
-        </p>
+        <p class="form-note">This form is currently a demo. I can connect it to email or a simple backend so you actually receive the requests.</p>
       </section>
     </main>
 
     <footer class="site-footer">
       <div class="container footer-inner">
         <strong>D&D Coastal Calm Resort</strong>
-        <p class="footer-location">
-          Mercedes, Poro · Camotes Islands, Cebu, Philippines
-        </p>
+        <p class="footer-location">Mercedes, Poro · Camotes Islands, Cebu, Philippines</p>
+        <p><a href="events.html">Events</a> · <a href="rooms.html">Rooms</a> · <a href="gallery.html">Gallery</a> · <a href="about.html">Our Story</a></p>
+        <p style="margin-top: 0.75rem;"><a href="https://www.facebook.com/profile.php?id=61582908533946" target="_blank" rel="noopener">Facebook</a> · <a href="https://www.youtube.com/@d_d_coastal_calm" target="_blank" rel="noopener">YouTube</a></p>
         <small>© <span id="year"></span> D&D Coastal Calm Resort</small>
       </div>
     </footer>
-
-    <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
+    <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
   </body>
 </html>

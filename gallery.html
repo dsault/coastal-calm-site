@@ -11,20 +11,15 @@
     <header class="site-header">
       <div class="container header-inner">
         <a href="index.html" class="logo-link">
-          <img
-            src="assets/pictures/FullLogo_Transparent_NoBuffer.png"
-            alt="D&D Coastal Calm Resort logo"
-            class="logo"
-          />
-          <div class="logo-text">
-            D&D Coastal Calm Resort
-            <span>Camotes Islands, Cebu</span>
-          </div>
+          <img src="assets/pictures/FullLogo_Transparent_NoBuffer.png" alt="D&D Coastal Calm Resort logo" class="logo" />
+          <div class="logo-text">D&D Coastal Calm Resort<span>Camotes Islands, Cebu</span></div>
         </a>
         <nav class="main-nav" aria-label="Main navigation">
           <a href="index.html">Home</a>
+          <a href="about.html">About</a>
           <a href="gallery.html" aria-current="page">Gallery</a>
           <a href="rooms.html">Rooms</a>
+          <a href="events.html">Events</a>
           <a href="booking.html">Booking</a>
         </nav>
       </div>
@@ -33,11 +28,7 @@
     <main class="container home-grid">
       <section class="card">
         <h2>Resort Gallery</h2>
-        <p style="color: var(--muted); margin-top: 0;">
-          Pool, ocean views, restaurant favorites, amenities, and life at Coastal Calm.
-          Click any photo to view it larger.
-        </p>
-
+        <p style="color: var(--muted); margin-top: 0;">Pool, ocean views, restaurant favorites, amenities, and life at Coastal Calm. Click any photo to view it larger.</p>
         <div class="gallery-grid" id="gallery-grid"></div>
       </section>
     </main>
@@ -45,9 +36,9 @@
     <footer class="site-footer">
       <div class="container footer-inner">
         <strong>D&D Coastal Calm Resort</strong>
-        <p class="footer-location">
-          Mercedes, Poro · Camotes Islands, Cebu, Philippines
-        </p>
+        <p class="footer-location">Mercedes, Poro · Camotes Islands, Cebu, Philippines</p>
+        <p><a href="booking.html">Book a stay</a> · <a href="events.html">Events</a> · <a href="rooms.html">Rooms</a> · <a href="about.html">Our Story</a></p>
+        <p style="margin-top: 0.75rem;"><a href="https://www.facebook.com/profile.php?id=61582908533946" target="_blank" rel="noopener">Facebook</a> · <a href="https://www.youtube.com/@d_d_coastal_calm" target="_blank" rel="noopener">YouTube</a></p>
         <small>© <span id="year"></span> D&D Coastal Calm Resort</small>
       </div>
     </footer>
@@ -64,7 +55,6 @@
 
     <script>
       const galleryImages = [
-        // Resort & views
         { src: "assets/pictures/air view.jpg", caption: "Aerial view of the resort along the Camotes coast" },
         { src: "assets/gallery/infinity_pool.jpg", caption: "Infinity pool at sunset – sky reflected in the water" },
         { src: "assets/gallery/the_pool.jpeg", caption: "Infinity pool with ocean horizon and water slide" },
@@ -78,8 +68,6 @@
         { src: "assets/gallery/hearts.jpeg", caption: "Heart-shaped seating – a favorite photo spot" },
         { src: "assets/gallery/ribbon_cutting.jpeg", caption: "Soft opening ribbon-cutting ceremony" },
         { src: "assets/gallery/the_team.jpeg", caption: "Our team – the heart of Coastal Calm" },
-
-        // Restaurant / food
         { src: "assets/gallery/77f6562d-9c1e-4b44-a29b-41f0f42cc156.jpg", caption: "Grilled steak with mashed potato and fresh salad" },
         { src: "assets/gallery/ea127f2b-21a8-48b5-99b6-c63e3c2670cb.jpg", caption: "D&D Special Pizza – loaded with toppings" },
         { src: "assets/gallery/3a6ba756-8d3b-4aa4-99f0-14fb407df770.jpg", caption: "Hawaiian pizza – ham, pineapple & melted cheese" },
@@ -90,18 +78,13 @@
         { src: "assets/gallery/83a3ad32-b88c-4e0a-951d-fdb7b25ef6ef.jpg", caption: "Aglio e olio – garlic, chili & herbs" },
         { src: "assets/gallery/4b53a93b-9a97-48e9-ba10-9b5d5d63c9b7.jpg", caption: "Breakfast – omelet, bacon and fresh apple" },
         { src: "assets/gallery/95152e1b-1ee1-44f3-a7df-3afe61764532.jpg", caption: "Breakfast – scrambled eggs, ham and apple" },
-        { src: "assets/gallery/20429669-bc8d-463a-b726-5412b0cfb4a3.jpg", caption: "Fresh mango shakes – a local favorite" },
-
-        // ---- Add new photos below this line ----
+        { src: "assets/gallery/20429669-bc8d-463a-b726-5412b0cfb4a3.jpg", caption: "Fresh mango shakes – a local favorite" }
       ];
 
       const grid = document.getElementById("gallery-grid");
       galleryImages.forEach((item, index) => {
         const figure = document.createElement("figure");
-        figure.innerHTML = `
-          <img src="${item.src}" alt="${item.caption}" loading="lazy" decoding="async" />
-          <figcaption>${item.caption}</figcaption>
-        `;
+        figure.innerHTML = `<img src="${item.src}" alt="${item.caption}" loading="lazy" decoding="async" /><figcaption>${item.caption}</figcaption>`;
         figure.addEventListener("click", () => openLightbox(index));
         grid.appendChild(figure);
       });
@@ -111,34 +94,11 @@
       const lightboxCaption = document.getElementById("lightbox-caption");
       let currentIndex = 0;
 
-      function openLightbox(index) {
-        currentIndex = index;
-        updateLightbox();
-        lightbox.classList.add("open");
-        document.body.style.overflow = "hidden";
-      }
-
-      function closeLightbox() {
-        lightbox.classList.remove("open");
-        document.body.style.overflow = "";
-      }
-
-      function updateLightbox() {
-        const item = galleryImages[currentIndex];
-        lightboxImage.src = item.src;
-        lightboxImage.alt = item.caption;
-        lightboxCaption.textContent = item.caption;
-      }
-
-      function showPrev() {
-        currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
-        updateLightbox();
-      }
-
-      function showNext() {
-        currentIndex = (currentIndex + 1) % galleryImages.length;
-        updateLightbox();
-      }
+      function openLightbox(index) { currentIndex = index; updateLightbox(); lightbox.classList.add("open"); document.body.style.overflow = "hidden"; }
+      function closeLightbox() { lightbox.classList.remove("open"); document.body.style.overflow = ""; }
+      function updateLightbox() { const item = galleryImages[currentIndex]; lightboxImage.src = item.src; lightboxImage.alt = item.caption; lightboxCaption.textContent = item.caption; }
+      function showPrev() { currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length; updateLightbox(); }
+      function showNext() { currentIndex = (currentIndex + 1) % galleryImages.length; updateLightbox(); }
 
       document.getElementById("lightbox-close").addEventListener("click", closeLightbox);
       document.getElementById("lightbox-prev").addEventListener("click", showPrev);
@@ -150,7 +110,6 @@
         if (e.key === "ArrowLeft") showPrev();
         if (e.key === "ArrowRight") showNext();
       });
-
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>
   </body>
