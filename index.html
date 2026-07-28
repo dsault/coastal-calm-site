@@ -6,6 +6,52 @@
     <title>D&D Coastal Calm Resort | Camotes Islands</title>
     <meta name="description" content="Boutique oceanfront eco-resort in Camotes Islands, Cebu. Infinity pool, beach access, restaurant, comfortable rooms, events, and warm hospitality." />
     <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* Hero video styles */
+      .hero-video-wrapper {
+        position: relative;
+        width: 100%;
+        border-radius: 16px;
+        overflow: hidden;
+        background: #000;
+        aspect-ratio: 16 / 9;
+        max-height: 480px;
+      }
+      .hero-video-wrapper video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .hero-video-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0.25) 100%);
+        pointer-events: none;
+      }
+      .sound-toggle {
+        position: absolute;
+        bottom: 14px;
+        right: 14px;
+        z-index: 5;
+        background: rgba(0,0,0,0.55);
+        color: #fff;
+        border: none;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1rem;
+        backdrop-filter: blur(4px);
+        transition: background 0.2s;
+      }
+      .sound-toggle:hover {
+        background: rgba(0,0,0,0.75);
+      }
+    </style>
   </head>
   <body>
     <header class="site-header">
@@ -27,7 +73,25 @@
 
     <main class="container home-grid">
       <section class="card hero-card">
-        <img src="assets/gallery/infinity_pool.jpg" alt="Infinity pool at sunset overlooking the ocean at D&D Coastal Calm Resort" class="hero-image" decoding="async" />
+        <!-- Video Hero -->
+        <div class="hero-video-wrapper">
+          <video 
+            id="heroVideo"
+            autoplay 
+            muted 
+            loop 
+            playsinline
+            preload="auto"
+          >
+            <source src="assets/videos/f8772268-b569-4983-a963-ea36406c9f51.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div class="hero-video-overlay"></div>
+          <button class="sound-toggle" id="soundToggle" onclick="toggleHeroSound()" title="Toggle soundtrack" aria-label="Toggle soundtrack">
+            <span id="soundIcon">🔇</span>
+          </button>
+        </div>
+
         <div class="hero-content">
           <h2>Your Oceanfront Escape in Camotes</h2>
           <p style="margin-top: 0.6rem; font-size: 1.08rem; line-height: 1.6;">Sometimes the best memories aren’t made in fancy places — <strong>they’re made with the people who matter most.</strong></p>
@@ -245,6 +309,19 @@
         if (e.key === "ArrowLeft") showPrev();
         if (e.key === "ArrowRight") showNext();
       });
+
+      // Hero video sound toggle
+      function toggleHeroSound() {
+        const video = document.getElementById("heroVideo");
+        const icon = document.getElementById("soundIcon");
+        if (video.muted) {
+          video.muted = false;
+          icon.textContent = "🔊";
+        } else {
+          video.muted = true;
+          icon.textContent = "🔇";
+        }
+      }
     </script>
   </body>
 </html>
