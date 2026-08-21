@@ -542,3 +542,86 @@ h1, h2, h3 {
     height: 100px;
   }
 }
+
+.room-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 0.85rem;
+}
+
+.room-rate {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent-dark);
+  margin: 0.15rem 0 0.15rem;
+}
+
+.room-rate span {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.room-rate-sub {
+  margin: 0 0 0.6rem;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.policy-list {
+  margin: 0 0 1.25rem;
+  padding-left: 1.2rem;
+  line-height: 1.75;
+}
+
+.notice-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.notice-card {
+  background: #fff6f4;
+  border: 1px solid #e8c4bc;
+  border-radius: 12px;
+  padding: 1.1rem 1.15rem;
+}
+
+.notice-card h3 {
+  margin: 0 0 0.45rem;
+  color: #8a3a32;
+}
+
+.notice-card p {
+  margin: 0;
+  color: var(--text);
+}
+
+.cancel-table {
+  display: grid;
+  gap: 0.65rem;
+  margin-top: 1rem;
+}
+
+.cancel-table > div {
+  display: grid;
+  gap: 0.2rem;
+  padding: 0.85rem 1rem;
+  background: var(--soft);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
+.cancel-table span {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 720px) {
+  .notice-pair {
+    grid-template-columns: 1fr;
+  }
+}
