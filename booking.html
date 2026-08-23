@@ -42,6 +42,7 @@
           <input id="checkin" name="checkin" type="date" required />
           <label for="checkout">Check-out date</label>
           <input id="checkout" name="checkout" type="date" required />
+          <p id="peak-msg" class="form-note" role="status"></p>
           <label for="roomType">Room type</label>
           <select id="roomType" name="roomType" required>
             <option value="">Select a room</option>
@@ -91,6 +92,56 @@
         <small>© <span id="year"></span> D&D Coastal Calm Resort</small>
       </div>
     </footer>
-    <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+    <script src="peak-dates.js"></script>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+      (function () {
+        var form = document.querySelector(".booking-form");
+        var checkin = document.getElementById("checkin");
+        var checkout = document.getElementById("checkout");
+        var msg = document.getElementById("peak-msg");
+        if (!form || !window.peakStay) return;
+
+        function todayIso() {
+          var d = new Date();
+          d.setHours(12, 0, 0, 0);
+          return window.peakStay.addDays(
+            d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0"),
+            0,
+          );
+        }
+        checkin.min = todayIso();
+
+        function sync() {
+          if (!checkin.value) return;
+          var minOut = window.peakStay.minCheckout(checkin.value);
+          checkout.min = minOut;
+          if (checkout.value && checkout.value < minOut) checkout.value = minOut;
+          var result = window.peakStay.validate(checkin.value, checkout.value);
+          if (!result.ok) {
+            msg.textContent = result.error;
+            msg.style.color = "#9b1c1c";
+          } else if (result.peakNames.length) {
+            msg.textContent =
+              "Peak dates on this stay: " + result.peakNames.join(", ") + ". " + result.minNights + "-night minimum applies.";
+            msg.style.color = "";
+          } else {
+            msg.textContent = "";
+          }
+        }
+
+        checkin.addEventListener("change", sync);
+        checkout.addEventListener("change", sync);
+        form.addEventListener("submit", function (e) {
+          var result = window.peakStay.validate(checkin.value, checkout.value);
+          if (!result.ok) {
+            e.preventDefault();
+            msg.textContent = result.error;
+            msg.style.color = "#9b1c1c";
+            checkout.focus();
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
