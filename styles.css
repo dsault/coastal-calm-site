@@ -620,6 +620,29 @@ h1, h2, h3 {
   font-size: 0.95rem;
 }
 
+.peak-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
+.peak-table th,
+.peak-table td {
+  text-align: left;
+  padding: 0.7rem 0.85rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.peak-table th {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.peak-table td:last-child {
+  white-space: nowrap;
+}
+
 @media (max-width: 720px) {
   .notice-pair {
     grid-template-columns: 1fr;
