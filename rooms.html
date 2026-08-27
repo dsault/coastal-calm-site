@@ -59,7 +59,7 @@
             <p>18 m² with all the comfort of Standard, plus a private balcony with table and chairs for morning coffee over the Camotes sea.</p>
             <p><strong>Size / occupancy:</strong> 18 m² · 2 adults · max 2 adults + 1 child · 3 rooms</p>
           </article>
-          <article class="room-card">
+          <article class="room-card" data-photos="assets/room pictures/deluxe-ocean.jpg,assets/room pictures/deluxe-bed-full.jpg,assets/room pictures/deluxe-bed-swans.jpg">
             <img src="assets/room pictures/deluxe-ocean.jpg" alt="Deluxe with ocean view — towel swans and sea through the windows" />
             <h3>Deluxe with Ocean View</h3>
             <p class="room-rate">₱3,600 <span>/ night</span></p>
@@ -76,7 +76,7 @@
             <p><strong>Size / occupancy:</strong> 22–28 m² · 2 adults · max 5 guests · 5 rooms</p>
             <p class="room-rate-sub">Listed on Agoda as Deluxe. Click the card for photos.</p>
           </article>
-          <article class="room-card">
+          <article class="room-card" data-photos="assets/room pictures/deluxe-spa-main.jpg,assets/room pictures/deluxe-spa-swans.png,assets/room pictures/deluxe-spa-tub.jpg,assets/room pictures/deluxe-bed-full.jpg,assets/room pictures/deluxe-bed-swans.jpg">
             <img src="assets/room pictures/deluxe-spa-main.jpg" alt="Deluxe room with in-room spa tub" />
             <h3>Deluxe with Spa Tub</h3>
             <p class="room-rate">₱3,600 <span>/ night</span></p>
@@ -221,38 +221,76 @@
 
     <div id="photo-lb" hidden>
       <button type="button" id="photo-lb-close" aria-label="Close">×</button>
+      <button type="button" id="photo-lb-prev" aria-label="Previous photo">‹</button>
       <img id="photo-lb-img" alt="" />
+      <button type="button" id="photo-lb-next" aria-label="Next photo">›</button>
       <p id="photo-lb-cap"></p>
+      <div id="photo-lb-thumbs"></div>
     </div>
     <script>
       (function () {
         var lb = document.getElementById("photo-lb");
         var img = document.getElementById("photo-lb-img");
         var cap = document.getElementById("photo-lb-cap");
+        var thumbs = document.getElementById("photo-lb-thumbs");
+        var prevBtn = document.getElementById("photo-lb-prev");
+        var nextBtn = document.getElementById("photo-lb-next");
         var list = [], i = 0, title = "";
         function show() {
+          if (!list.length) return;
           img.src = list[i];
-          cap.textContent = title + " · " + (i + 1) + " / " + list.length;
+          cap.textContent = title + " · " + (i + 1) + " / " + list.length + " — tap photo or arrows for next";
+          thumbs.innerHTML = "";
+          list.forEach(function (src, n) {
+            var b = document.createElement("button");
+            b.type = "button";
+            b.className = n === i ? "on" : "";
+            var t = document.createElement("img");
+            t.src = src;
+            t.alt = "";
+            b.appendChild(t);
+            b.onclick = function (e) { e.stopPropagation(); i = n; show(); };
+            thumbs.appendChild(b);
+          });
           lb.hidden = false;
+          document.body.style.overflow = "hidden";
         }
-        document.querySelectorAll(".room-card[data-photos]").forEach(function (card) {
+        function close() {
+          lb.hidden = true;
+          document.body.style.overflow = "";
+        }
+        function next() { if (list.length) { i = (i + 1) % list.length; show(); } }
+        function prev() { if (list.length) { i = (i - 1 + list.length) % list.length; show(); } }
+        document.querySelectorAll(".room-card").forEach(function (card) {
+          var raw = card.getAttribute("data-photos");
+          if (!raw) return;
           card.style.cursor = "pointer";
           card.addEventListener("click", function (e) {
             if (e.target.closest("a")) return;
-            list = card.getAttribute("data-photos").split(",");
+            list = raw.split(",").map(function (s) { return s.trim(); }).filter(Boolean);
             title = card.querySelector("h3").textContent;
             i = 0;
             show();
           });
         });
-        document.getElementById("photo-lb-close").onclick = function () { lb.hidden = true; };
-        lb.addEventListener("click", function (e) { if (e.target === lb) lb.hidden = true; });
+        document.getElementById("photo-lb-close").onclick = function (e) { e.stopPropagation(); close(); };
+        prevBtn.onclick = function (e) { e.stopPropagation(); prev(); };
+        nextBtn.onclick = function (e) { e.stopPropagation(); next(); };
+        img.onclick = function (e) { e.stopPropagation(); next(); };
+        lb.addEventListener("click", function (e) { if (e.target === lb) close(); });
         document.addEventListener("keydown", function (e) {
           if (lb.hidden) return;
-          if (e.key === "Escape") lb.hidden = true;
-          if (e.key === "ArrowRight") { i = (i + 1) % list.length; show(); }
-          if (e.key === "ArrowLeft") { i = (i - 1 + list.length) % list.length; show(); }
+          if (e.key === "Escape") close();
+          if (e.key === "ArrowRight") next();
+          if (e.key === "ArrowLeft") prev();
         });
+        var sx = 0;
+        lb.addEventListener("touchstart", function (e) { sx = e.changedTouches[0].screenX; }, { passive: true });
+        lb.addEventListener("touchend", function (e) {
+          var dx = e.changedTouches[0].screenX - sx;
+          if (dx < -40) next();
+          if (dx > 40) prev();
+        }, { passive: true });
       })();
     </script>
 
