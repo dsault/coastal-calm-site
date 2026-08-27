@@ -1,0 +1,9 @@
+# Cloudflare Workers assets. Git pack files are > 25 MiB and fail deploy.
+.git
+.git/**
+**/.git/**
+
+node_modules
+.wrangler
+.github
+*.log
