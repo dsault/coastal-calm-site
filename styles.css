@@ -643,6 +643,35 @@ h1, h2, h3 {
   white-space: nowrap;
 }
 
+#photo-lb[hidden] { display: none; }
+#photo-lb {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  background: rgba(21, 48, 71, 0.92);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+#photo-lb img {
+  max-width: min(1100px, 94vw);
+  max-height: 78vh;
+  object-fit: contain;
+}
+#photo-lb-cap { color: #fff; margin-top: 0.75rem; }
+#photo-lb-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 1rem;
+  background: none;
+  border: 0;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
 @media (max-width: 720px) {
   .notice-pair {
     grid-template-columns: 1fr;
