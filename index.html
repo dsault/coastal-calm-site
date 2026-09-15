@@ -127,6 +127,45 @@
         </div>
         <div class="food-photos" id="food-photos"></div>
       </section>
+      <section class="card comments-card" id="comments">
+        <h2>Guest Comments</h2>
+        <p class="restaurant-tagline" style="margin-top: 0.25rem;">What visitors are saying</p>
+        <p style="color: var(--muted); margin-top: 0;">A few notes from recent guests. We would love to hear about your stay too.</p>
+        <div class="comments-grid" id="comments-list">
+          <article class="comment-card">
+            <div class="comment-stars" aria-label="5 stars">★★★★★</div>
+            <p>“The infinity pool at sunset is unforgettable. Our kids lived on the water slide, and breakfast looking at the sea made the whole trip feel easy.”</p>
+            <footer><strong>Mia</strong><span>Family stay · Cebu</span></footer>
+          </article>
+          <article class="comment-card">
+            <div class="comment-stars" aria-label="5 stars">★★★★★</div>
+            <p>“We came for the view and stayed for the food. The steak and mango shake by the gazebo were exactly what we wanted after a long ferry day.”</p>
+            <footer><strong>Carlo & Jen</strong><span>Weekend getaway · Mandaue</span></footer>
+          </article>
+          <article class="comment-card">
+            <div class="comment-stars" aria-label="5 stars">★★★★★</div>
+            <p>“Barkada night done right — live comedy, disco after, and the beachfront right there. Staff kept everything friendly and relaxed.”</p>
+            <footer><strong>Paolo</strong><span>Friends trip · Cebu City</span></footer>
+          </article>
+          <article class="comment-card">
+            <div class="comment-stars" aria-label="5 stars">★★★★★</div>
+            <p>“Quiet mornings, ocean breeze, and a clean room with a real view. Poro Port is close enough that arriving did not feel complicated.”</p>
+            <footer><strong>Elena</strong><span>Overnight stay · Manila</span></footer>
+          </article>
+        </div>
+        <h3 style="margin-top: 1.75rem; color: var(--accent-dark);">Leave a comment</h3>
+        <form class="comment-form" id="comment-form">
+          <label for="comment-name">Your name</label>
+          <input id="comment-name" name="name" type="text" required maxlength="80" placeholder="e.g. Ana" />
+          <label for="comment-from">Where you visited from</label>
+          <input id="comment-from" name="from" type="text" maxlength="80" placeholder="e.g. Cebu City" />
+          <label for="comment-text">Your comment</label>
+          <textarea id="comment-text" name="comment" rows="4" required maxlength="500" placeholder="Tell us about your stay, the food, the pool, or an event..."></textarea>
+          <button type="submit" class="btn">Share Comment</button>
+        </form>
+        <p class="comment-thanks" id="comment-thanks">Salamat! Your comment has been added below. You can also share photos on our <a href="https://www.facebook.com/profile.php?id=61582908533946" target="_blank" rel="noopener">Facebook page</a>.</p>
+        <p class="form-note">Comments you submit appear on this device right away. Message us on Facebook if you would like a note featured for all visitors.</p>
+      </section>
       <section class="card">
         <h2>How to Get Here</h2>
         <p><strong>Location:</strong> Mahaba Road, Mercedes, Poro, Camotes Islands, Cebu</p>
@@ -230,6 +269,36 @@
         if (video.muted) { video.muted = false; icon.textContent = "\ud83d\udd0a"; }
         else { video.muted = true; icon.textContent = "\ud83d\udd07"; }
       }
+      const commentsList = document.getElementById("comments-list");
+      const commentForm = document.getElementById("comment-form");
+      const commentThanks = document.getElementById("comment-thanks");
+      function escapeHtml(value) {
+        return String(value).replace(/[&<>"']/g, (ch) => ({
+          "&": "&", "<": "<", ">": ">", '"': """, "'": "&#39;"
+        }[ch]));
+      }
+      function addCommentCard(name, from, text) {
+        const article = document.createElement("article");
+        article.className = "comment-card";
+        article.innerHTML =
+          '<div class="comment-stars" aria-label="Guest comment">★★★★★</div>' +
+          "<p>“" + escapeHtml(text) + "”</p>" +
+          "<footer><strong>" + escapeHtml(name) + "</strong><span>" +
+          (from ? escapeHtml(from) : "Guest") +
+          "</span></footer>";
+        commentsList.prepend(article);
+      }
+      commentForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const name = document.getElementById("comment-name").value.trim();
+        const from = document.getElementById("comment-from").value.trim();
+        const text = document.getElementById("comment-text").value.trim();
+        if (!name || !text) return;
+        addCommentCard(name, from, text);
+        commentForm.reset();
+        commentThanks.classList.add("show");
+        commentThanks.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      });
     </script>
   </body>
 </html>
