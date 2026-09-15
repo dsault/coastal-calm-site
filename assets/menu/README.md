@@ -1,0 +1,1 @@
+Printed September 2026 menu pages are assembled in the browser from p1-*.js and p2-*.js chunks as JPEG data URIs so the on-screen menu matches the paper menu exactly.
