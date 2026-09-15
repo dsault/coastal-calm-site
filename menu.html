@@ -4,17 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Menu | D&D Coastal Calm Resort</title>
-    <meta name="description" content="Restaurant menu at D&D Coastal Calm Resort — Filipino favorites, seafood, steaks, pizza, pasta and drinks. Open daily 8:00 AM – 9:00 PM." />
+    <meta name="description" content="Restaurant menu at D&D Coastal Calm Resort. Open daily 8:00 AM – 9:00 PM." />
     <link rel="stylesheet" href="styles.css" />
     <style>
-      .menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem 2.5rem; }
-      .menu-grid h3 { color: var(--accent-dark); margin: 1.35rem 0 0.5rem; font-size: 1.12rem; }
-      .menu-grid h3:first-child { margin-top: 0; }
-      .menu-table { width: 100%; border-collapse: collapse; font-size: 0.98rem; }
-      .menu-table td { padding: 0.38rem 0; border-bottom: 1px solid var(--border); vertical-align: top; }
-      .menu-table td:last-child { text-align: right; font-weight: 600; white-space: nowrap; padding-left: 1rem; }
-      .menu-note { color: var(--muted); font-size: 0.92rem; margin: 0.2rem 0 0.55rem; }
-      @media (max-width: 720px) { .menu-grid { grid-template-columns: 1fr; gap: 0.5rem; } }
+      .menu-pages { display: grid; gap: 1.25rem; }
+      .menu-pages img {
+        width: 100%;
+        max-width: 920px;
+        height: auto;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+        background: #fff;
+        cursor: zoom-in;
+      }
     </style>
   </head>
   <body>
@@ -37,205 +40,85 @@
         </nav>
       </div>
     </header>
-
     <main class="container home-grid">
       <section class="card restaurant-card">
         <h2>Restaurant Menu</h2>
         <p class="restaurant-tagline">Good Food, Great View, Best Moments</p>
-        <p style="margin-top: 0; color: var(--muted);">
-          Filipino favorites, seafood and resort classics. Open daily <strong>8:00 AM – 9:00 PM</strong>.
-          Food can be enjoyed throughout the resort.
-        </p>
-        <p style="color: var(--muted); font-size: 0.95rem;">
-          +63 32 507 9856 · +63 956 504 3304 · +1 424 999-9910
-        </p>
-        <p>
-          <a href="assets/pictures/menu_.pdf" class="btn" target="_blank" rel="noopener">Download PDF menu</a>
-        </p>
+        <p style="margin-top:0;color:var(--muted)">Filipino favorites, seafood and resort classics. Open daily <strong>8:00 AM – 9:00 PM</strong>. Food can be enjoyed throughout the resort.</p>
+        <p style="color:var(--muted);font-size:0.95rem">+63 32 507 9856 · +63 956 504 3304 · +1 424 999-9910</p>
+        <p style="color:var(--muted);font-size:0.92rem">The menu below is the current printed menu. Tap a page to enlarge.</p>
       </section>
-
       <section class="card">
-        <div class="menu-grid">
-          <div>
-            <h3>Appetizers</h3>
-            <table class="menu-table">
-              <tr><td>Sisig</td><td>₱280</td></tr>
-              <tr><td>Calamares</td><td>₱300</td></tr>
-              <tr><td>French Fries</td><td>₱180</td></tr>
-              <tr><td>Hot Dog</td><td>₱180</td></tr>
-              <tr><td>Spring Rolls</td><td>₱250</td></tr>
-              <tr><td>Potato Wedges</td><td>₱180</td></tr>
-              <tr><td>Onion Rings</td><td>₱300</td></tr>
-              <tr><td>Nachos</td><td>₱350</td></tr>
-            </table>
-            <h3>Soups</h3>
-            <table class="menu-table">
-              <tr><td>Chicken Tinola</td><td>₱280</td></tr>
-              <tr><td>Fish Tinola</td><td>₱280</td></tr>
-              <tr><td>Pork Sinigang</td><td>₱300</td></tr>
-              <tr><td>Wonton Chicken Soup</td><td>₱310</td></tr>
-              <tr><td>Pochero</td><td>₱750</td></tr>
-              <tr><td>Fish Sinigang</td><td>₱310</td></tr>
-              <tr><td>Shrimp Sinigang</td><td>₱310</td></tr>
-            </table>
-            <h3>Salads</h3>
-            <table class="menu-table">
-              <tr><td>Chef Salad</td><td>₱310</td></tr>
-              <tr><td>Green Salad</td><td>₱280</td></tr>
-              <tr><td>Caesar Salad</td><td>₱310</td></tr>
-              <tr><td>Greek Salad</td><td>₱310</td></tr>
-            </table>
-            <h3>Steaks</h3>
-            <table class="menu-table">
-              <tr><td>Ribeye</td><td>8 oz ₱1,890 / 16 oz ₱2,990</td></tr>
-              <tr><td>T-bone</td><td>₱2,790</td></tr>
-              <tr><td>Sirloin</td><td>₱2,590</td></tr>
-              <tr><td>6 oz Steak Sandwich</td><td>₱1,190</td></tr>
-              <tr><td>4 oz Steak Salad</td><td>₱990</td></tr>
-              <tr><td>Add Mushrooms</td><td>₱80</td></tr>
-            </table>
-            <h3>Breakfast</h3>
-            <p class="menu-note">Fried, scrambled, boiled or omelet. Add-ons: ham, corned beef, chorizo, hotdog, bacon, beef tapa, extra egg, garlic rice, rice or toast.</p>
-            <table class="menu-table">
-              <tr><td>Two eggs with rice or toast</td><td>₱290</td></tr>
-              <tr><td>Each breakfast add-on</td><td>₱80</td></tr>
-            </table>
-          </div>
-          <div>
-            <h3>Main Courses</h3>
-            <table class="menu-table">
-              <tr><td>Breaded Chicken</td><td>₱390</td></tr>
-              <tr><td>Breaded Pork Chop</td><td>₱390</td></tr>
-              <tr><td>Buttered Chicken</td><td>₱350</td></tr>
-              <tr><td>Buttered Shrimp</td><td>₱380</td></tr>
-              <tr><td>Crispy Pata</td><td>₱650</td></tr>
-              <tr><td>Pancit Canton</td><td>₱280</td></tr>
-              <tr><td>Bam-i</td><td>₱280</td></tr>
-              <tr><td>Chicken Curry</td><td>₱280</td></tr>
-              <tr><td>Lechon Kawali / Bagnet</td><td>₱300</td></tr>
-              <tr><td>Fish Kinilaw</td><td>₱280</td></tr>
-              <tr><td>Buffalo Wings</td><td>₱300</td></tr>
-              <tr><td>Sweet & Sour Fish</td><td>₱280</td></tr>
-              <tr><td>Pork Humba</td><td>₱280</td></tr>
-              <tr><td>Chicken & Pork Adobo</td><td>₱290</td></tr>
-              <tr><td>Pakbet</td><td>₱290</td></tr>
-              <tr><td>Gambas</td><td>₱310</td></tr>
-              <tr><td>Butter Garlic Shrimp</td><td>₱290</td></tr>
-              <tr><td>Shrimp Scampi</td><td>₱290</td></tr>
-              <tr><td>Beef with Broccoli</td><td>₱280</td></tr>
-              <tr><td>Beef with Mushrooms</td><td>₱280</td></tr>
-              <tr><td>Beef with Onion</td><td>₱280</td></tr>
-              <tr><td>Beef Cebuano</td><td>₱280</td></tr>
-              <tr><td>Baked Salmon</td><td>₱350</td></tr>
-              <tr><td>Lemon Buttered Salmon</td><td>₱350</td></tr>
-              <tr><td>Chop Suey</td><td>₱280</td></tr>
-              <tr><td>Sweet & Sour Pork</td><td>₱280</td></tr>
-            </table>
-            <h3>Sandwiches</h3>
-            <p class="menu-note">Sandwiches include fries — ₱300</p>
-            <table class="menu-table">
-              <tr><td>Classic Club Sandwich</td><td></td></tr>
-              <tr><td>Classic BLT Sandwich</td><td></td></tr>
-              <tr><td>Tuna Salad Sandwich</td><td></td></tr>
-              <tr><td>Ham & Cheese Sandwich</td><td></td></tr>
-              <tr><td>Classic Hamburger incl fries</td><td>₱350</td></tr>
-            </table>
-            <h3>Rice</h3>
-            <table class="menu-table">
-              <tr><td>D&D Special Fried Rice</td><td>₱300</td></tr>
-              <tr><td>Garlic Rice Platter</td><td>₱210</td></tr>
-              <tr><td>Plain Rice Platter</td><td>₱160</td></tr>
-              <tr><td>Cup of Rice</td><td>₱30</td></tr>
-              <tr><td>Cup of Garlic Rice</td><td>₱45</td></tr>
-            </table>
-          </div>
+        <div class="menu-pages">
+          <img id="menu-p1" alt="D&D Coastal Calm Resort menu page 1" />
+          <img id="menu-p2" alt="D&D Coastal Calm Resort menu page 2 — pizza, pasta and drinks" />
         </div>
-      </section>
-
-      <section class="card">
-        <h2>Pizza, Pasta & Drinks</h2>
-        <div class="menu-grid">
-          <div>
-            <h3>Pasta — ₱300</h3>
-            <table class="menu-table">
-              <tr><td>Carbonara</td><td></td></tr>
-              <tr><td>Aglio e Olio</td><td></td></tr>
-              <tr><td>Bolognese</td><td></td></tr>
-              <tr><td>Tuna Pasta</td><td></td></tr>
-              <tr><td>Penne Arrabbiata</td><td></td></tr>
-              <tr><td>Mac & Cheese</td><td></td></tr>
-            </table>
-            <h3>Pizza</h3>
-            <p class="menu-note">10 inch (1–2 people) / 14 inch (3–4 people). Extra toppings ₱90.</p>
-            <table class="menu-table">
-              <tr><td>D&D Special Pizza</td><td>₱480 / ₱800</td></tr>
-              <tr><td>Meat Lovers</td><td>₱450 / ₱780</td></tr>
-              <tr><td>Pepperoni</td><td>₱390 / ₱720</td></tr>
-              <tr><td>Hawaiian</td><td>₱390 / ₱720</td></tr>
-              <tr><td>Veggie Pizza</td><td>₱350 / ₱680</td></tr>
-            </table>
-            <h3>Shakes</h3>
-            <p class="menu-note">Regular / Large — ₱90 / ₱170</p>
-            <table class="menu-table">
-              <tr><td>Watermelon</td><td></td></tr>
-              <tr><td>Pineapple</td><td></td></tr>
-              <tr><td>Mango</td><td></td></tr>
-              <tr><td>Banana</td><td></td></tr>
-              <tr><td>Buko</td><td></td></tr>
-            </table>
-            <h3>Juices & Iced Tea</h3>
-            <p class="menu-note">Glass / Pitcher — ₱90 / ₱280</p>
-            <table class="menu-table">
-              <tr><td>Four Seasons</td><td></td></tr>
-              <tr><td>Nestea</td><td></td></tr>
-              <tr><td>Mango</td><td></td></tr>
-              <tr><td>Orange</td><td></td></tr>
-              <tr><td>Pineapple</td><td></td></tr>
-            </table>
-          </div>
-          <div>
-            <h3>Water</h3>
-            <table class="menu-table">
-              <tr><td>Bottled Water 500 ml</td><td>₱30</td></tr>
-            </table>
-            <h3>Coffee & Tea</h3>
-            <table class="menu-table">
-              <tr><td>Brewed Coffee or Tea</td><td>₱80</td></tr>
-              <tr><td>Specialty Coffees (latte, etc.)</td><td>₱170</td></tr>
-            </table>
-            <h3>Beer & Coolers</h3>
-            <table class="menu-table">
-              <tr><td>1 L Red Horse or San Miguel Beer</td><td>₱170</td></tr>
-              <tr><td>Local bottled beers & coolers</td><td>₱90</td></tr>
-            </table>
-            <h3>Soft Drinks</h3>
-            <table class="menu-table">
-              <tr><td>Small bottles: Pepsi, 7-Up, Mirinda and C2</td><td>₱50</td></tr>
-              <tr><td>355 ml: Mountain Dew and Tropicana</td><td>₱70</td></tr>
-              <tr><td>Cans: Coke, Diet Coke, Coke Zero, Royal and Sprite, plus Gatorade 500 ml</td><td>₱90</td></tr>
-              <tr><td>Coke 1.5 L</td><td>₱150</td></tr>
-            </table>
-            <h3>Wine & Spirits</h3>
-            <p class="menu-note">Ask your server for available labels.</p>
-            <table class="menu-table">
-              <tr><td>House red or white, glass</td><td>₱300</td></tr>
-              <tr><td>Spirits, 1 oz shot</td><td>₱90</td></tr>
-              <tr><td>Spirits, bottle</td><td>₱1,500</td></tr>
-            </table>
-          </div>
-        </div>
-        <p class="menu-note" style="margin-top: 1.25rem;">All prices are in Philippine pesos.</p>
       </section>
     </main>
-
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Menu viewer">
+      <div class="lightbox-content">
+        <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
+        <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous page">&#10094;</button>
+        <img class="lightbox-image" id="lightbox-image" src="" alt="" />
+        <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Next page">&#10095;</button>
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+      </div>
+    </div>
     <footer class="site-footer">
       <div class="container footer-inner">
         <strong>D&D Coastal Calm Resort</strong>
         <p class="footer-location">Mercedes, Poro · Camotes Islands, Cebu, Philippines</p>
-        <p><a href="index.html">Home</a> · <a href="menu.html">Menu</a> · <a href="contact.html">Contact</a> · <a href="https://letsbook.me/booking/ddcoastalcalmresort" target="_blank" rel="noopener">Book a stay</a></p>
+        <p><a href="index.html">Home</a> · <a href="menu.html">Menu</a> · <a href="contact.html">Contact</a></p>
         <small>© <span id="year"></span> D&D Coastal Calm Resort</small>
       </div>
     </footer>
-    <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+    <script src="assets/menu-p1-0.js"></script>
+    <script src="assets/menu-p1-1.js"></script>
+    <script src="assets/menu-p1-2.js"></script>
+    <script src="assets/menu-p1-3.js"></script>
+    <script src="assets/menu-p1-4.js"></script>
+    <script src="assets/menu-p1-5.js"></script>
+    <script src="assets/menu-p1-6.js"></script>
+    <script src="assets/menu-p2-0.js"></script>
+    <script src="assets/menu-p2-1.js"></script>
+    <script src="assets/menu-p2-2.js"></script>
+    <script src="assets/menu-p2-3.js"></script>
+    <script src="assets/menu-p2-4.js"></script>
+    <script src="assets/menu-p2-5.js"></script>
+    <script src="assets/menu-p2-6.js"></script>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+      window.MENU_PAGE_1 = "data:image/jpeg;base64," + (window._p1 || []).join("");
+      window.MENU_PAGE_2 = "data:image/jpeg;base64," + (window._p2 || []).join("");
+      const p1 = document.getElementById("menu-p1");
+      const p2 = document.getElementById("menu-p2");
+      p1.src = window.MENU_PAGE_1;
+      p2.src = window.MENU_PAGE_2;
+      const pages = [
+        { src: window.MENU_PAGE_1, caption: "Menu — page 1" },
+        { src: window.MENU_PAGE_2, caption: "Menu — page 2" }
+      ];
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImage = document.getElementById("lightbox-image");
+      const lightboxCaption = document.getElementById("lightbox-caption");
+      let currentIndex = 0;
+      function openLightbox(index) { currentIndex = index; updateLightbox(); lightbox.classList.add("open"); document.body.style.overflow = "hidden"; }
+      function closeLightbox() { lightbox.classList.remove("open"); document.body.style.overflow = ""; }
+      function updateLightbox() { const item = pages[currentIndex]; lightboxImage.src = item.src; lightboxImage.alt = item.caption; lightboxCaption.textContent = item.caption; }
+      function showPrev() { currentIndex = (currentIndex - 1 + pages.length) % pages.length; updateLightbox(); }
+      function showNext() { currentIndex = (currentIndex + 1) % pages.length; updateLightbox(); }
+      p1.addEventListener("click", () => openLightbox(0));
+      p2.addEventListener("click", () => openLightbox(1));
+      document.getElementById("lightbox-close").addEventListener("click", closeLightbox);
+      document.getElementById("lightbox-prev").addEventListener("click", showPrev);
+      document.getElementById("lightbox-next").addEventListener("click", showNext);
+      lightbox.addEventListener("click", (e) => { if (e.target === lightbox) closeLightbox(); });
+      document.addEventListener("keydown", (e) => {
+        if (!lightbox.classList.contains("open")) return;
+        if (e.key === "Escape") closeLightbox();
+        if (e.key === "ArrowLeft") showPrev();
+        if (e.key === "ArrowRight") showNext();
+      });
+    </script>
   </body>
 </html>
