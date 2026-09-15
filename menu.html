@@ -46,13 +46,16 @@
         <p class="restaurant-tagline">Good Food, Great View, Best Moments</p>
         <p style="margin-top:0;color:var(--muted)">Filipino favorites, seafood and resort classics. Open daily <strong>8:00 AM – 9:00 PM</strong>. Food can be enjoyed throughout the resort.</p>
         <p style="color:var(--muted);font-size:0.95rem">+63 32 507 9856 · +63 956 504 3304 · +1 424 999-9910</p>
-        <p style="color:var(--muted);font-size:0.92rem">The menu below is the current printed menu. Tap a page to enlarge.</p>
+        <p>
+          <a href="assets/pictures/menu.pdf" class="btn" target="_blank" rel="noopener">Download PDF menu</a>
+        </p>
       </section>
       <section class="card">
         <div class="menu-pages">
-          <img id="menu-p1" alt="D&D Coastal Calm Resort menu page 1" />
-          <img id="menu-p2" alt="D&D Coastal Calm Resort menu page 2 — pizza, pasta and drinks" />
+          <img src="assets/pictures/menu-page-1.jpg" alt="D&D Coastal Calm Resort menu page 1" onclick="openLightbox(0)" />
+          <img src="assets/pictures/menu-page-2.jpg" alt="D&D Coastal Calm Resort menu page 2 — pizza, pasta and drinks" onclick="openLightbox(1)" />
         </div>
+        <p style="margin-top:1rem;color:var(--muted);font-size:0.92rem">Tap a page to enlarge. All prices are in Philippine pesos.</p>
       </section>
     </main>
     <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Menu viewer">
@@ -72,31 +75,11 @@
         <small>© <span id="year"></span> D&D Coastal Calm Resort</small>
       </div>
     </footer>
-    <script src="assets/menu-p1-0.js"></script>
-    <script src="assets/menu-p1-1.js"></script>
-    <script src="assets/menu-p1-2.js"></script>
-    <script src="assets/menu-p1-3.js"></script>
-    <script src="assets/menu-p1-4.js"></script>
-    <script src="assets/menu-p1-5.js"></script>
-    <script src="assets/menu-p1-6.js"></script>
-    <script src="assets/menu-p2-0.js"></script>
-    <script src="assets/menu-p2-1.js"></script>
-    <script src="assets/menu-p2-2.js"></script>
-    <script src="assets/menu-p2-3.js"></script>
-    <script src="assets/menu-p2-4.js"></script>
-    <script src="assets/menu-p2-5.js"></script>
-    <script src="assets/menu-p2-6.js"></script>
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
-      window.MENU_PAGE_1 = "data:image/jpeg;base64," + (window._p1 || []).join("");
-      window.MENU_PAGE_2 = "data:image/jpeg;base64," + (window._p2 || []).join("");
-      const p1 = document.getElementById("menu-p1");
-      const p2 = document.getElementById("menu-p2");
-      p1.src = window.MENU_PAGE_1;
-      p2.src = window.MENU_PAGE_2;
       const pages = [
-        { src: window.MENU_PAGE_1, caption: "Menu — page 1" },
-        { src: window.MENU_PAGE_2, caption: "Menu — page 2" }
+        { src: "assets/pictures/menu-page-1.jpg", caption: "Menu — page 1" },
+        { src: "assets/pictures/menu-page-2.jpg", caption: "Menu — page 2" }
       ];
       const lightbox = document.getElementById("lightbox");
       const lightboxImage = document.getElementById("lightbox-image");
@@ -107,8 +90,6 @@
       function updateLightbox() { const item = pages[currentIndex]; lightboxImage.src = item.src; lightboxImage.alt = item.caption; lightboxCaption.textContent = item.caption; }
       function showPrev() { currentIndex = (currentIndex - 1 + pages.length) % pages.length; updateLightbox(); }
       function showNext() { currentIndex = (currentIndex + 1) % pages.length; updateLightbox(); }
-      p1.addEventListener("click", () => openLightbox(0));
-      p2.addEventListener("click", () => openLightbox(1));
       document.getElementById("lightbox-close").addEventListener("click", closeLightbox);
       document.getElementById("lightbox-prev").addEventListener("click", showPrev);
       document.getElementById("lightbox-next").addEventListener("click", showNext);
