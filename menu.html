@@ -67,11 +67,11 @@
       </section>
       <div class="printed-pages" aria-label="Printed menu pages">
         <figure>
-          <img id="menu-page-1" alt="D&amp;D Coastal Calm Resort menu page 1 — appetizers, soups, salads, steaks, breakfast, mains, sandwiches and rice" />
+          <img id="menu-page-1" src="assets/menu/page-1.jpg" alt="D&amp;D Coastal Calm Resort menu page 1 — appetizers, soups, salads, steaks, breakfast, mains, sandwiches and rice" loading="eager" decoding="async" />
           <figcaption>Page 1 of 2</figcaption>
         </figure>
         <figure>
-          <img id="menu-page-2" alt="D&amp;D Coastal Calm Resort menu page 2 — pizza, pasta, shakes, juices, beer, soft drinks, wine and spirits" />
+          <img id="menu-page-2" src="assets/menu/page-2.jpg" alt="D&amp;D Coastal Calm Resort menu page 2 — pizza, pasta, shakes, juices, beer, soft drinks, wine and spirits" loading="lazy" decoding="async" />
           <figcaption>Page 2 of 2</figcaption>
         </figure>
       </div>
@@ -93,27 +93,11 @@
         <div class="lightbox-caption" id="lightbox-caption"></div>
       </div>
     </div>
-    <script src="assets/menu/p1-0.js"></script>
-    <script src="assets/menu/p1-1.js"></script>
-    <script src="assets/menu/p1-2.js"></script>
-    <script src="assets/menu/p1-3.js"></script>
-    <script src="assets/menu/p1-4.js"></script>
-    <script src="assets/menu/p1-5.js"></script>
-    <script src="assets/menu/p1-6.js"></script>
-    <script src="assets/menu/p2-0.js"></script>
-    <script src="assets/menu/p2-1.js"></script>
-    <script src="assets/menu/p2-2.js"></script>
-    <script src="assets/menu/p2-3.js"></script>
-    <script src="assets/menu/p2-4.js"></script>
-    <script src="assets/menu/p2-5.js"></script>
-    <script src="assets/menu/p2-6.js"></script>
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
-      const page1 = "data:image/jpeg;base64," + (window._p1 || []).join("");
-      const page2 = "data:image/jpeg;base64," + (window._p2 || []).join("");
       const pages = [
-        { src: page1, caption: "Menu page 1" },
-        { src: page2, caption: "Menu page 2" }
+        { src: "assets/menu/page-1.jpg", caption: "Menu page 1" },
+        { src: "assets/menu/page-2.jpg", caption: "Menu page 2" }
       ];
       const img1 = document.getElementById("menu-page-1");
       const img2 = document.getElementById("menu-page-2");
