@@ -7,3 +7,7 @@ node_modules
 .wrangler
 .github
 *.log
+
+# Menu and other PDFs must not be published as downloadable files.
+*.pdf
+**/*.pdf
