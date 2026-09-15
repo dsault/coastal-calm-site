@@ -1,0 +1,8 @@
+# Do not serve downloadable menu (or other) PDFs.
+/assets/pictures/menu_.pdf    /menu.html    301
+/assets/pictures/menu.pdf     /menu.html    301
+/menu_.pdf                    /menu.html    301
+/menu.pdf                     /menu.html    301
+/*.pdf                        /menu.html    301
+/*/*.pdf                      /menu.html    301
+/*/*/*.pdf                    /menu.html    301
