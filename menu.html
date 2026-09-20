@@ -7,129 +7,32 @@
     <meta name="description" content="September 2026 restaurant menu at D&D Coastal Calm Resort. Open daily 8:00 AM – 9:00 PM." />
     <link rel="stylesheet" href="styles.css" />
     <style>
-      .print-menu {
-        --menu-ink: #1c3d5a;
-        --menu-gold: #c4a35a;
-        --menu-cream: #f6efe3;
-        --menu-navy: #16324a;
-        background: var(--menu-cream);
-        color: var(--menu-ink);
+      .menu-pages { display: grid; gap: 1.25rem; max-width: 920px; margin: 0 auto 1.5rem; }
+      .menu-page {
+        background: #f6efe3;
         border: 1px solid #d8c9b0;
-        border-radius: 6px;
+        border-radius: 8px;
         overflow: hidden;
         box-shadow: 0 10px 30px rgba(22, 50, 74, 0.12);
-        font-family: Georgia, "Times New Roman", serif;
-        margin: 0 auto 1.5rem;
-        max-width: 920px;
-      }
-      .print-menu .bar {
-        background: var(--menu-navy);
-        color: #e8d7b0;
-        padding: 0.45rem 1.1rem;
-        display: flex;
-        justify-content: space-between;
-        gap: 1rem;
-        font-size: 0.78rem;
-        letter-spacing: 0.02em;
-      }
-      .print-menu .inner { padding: 1.1rem 1.25rem 0.9rem; }
-      .print-head {
-        display: grid;
-        grid-template-columns: 110px 1fr;
-        gap: 0.85rem;
-        align-items: center;
-        padding-bottom: 0.7rem;
-        border-bottom: 2px solid var(--menu-gold);
-      }
-      .print-head img.logo { height: 72px; width: auto; }
-      .print-head h1 {
         margin: 0;
-        font-size: clamp(1.6rem, 4vw, 2.15rem);
-        letter-spacing: 0.04em;
-        color: var(--menu-navy);
-        font-weight: 700;
       }
-      .print-head .tag {
-        margin: 0.15rem 0 0.35rem;
-        font-style: italic;
-        color: #3d6480;
-        font-size: 0.95rem;
-      }
-      .print-head .meta {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.35rem 1rem;
-        font-size: 0.82rem;
-        color: #35566d;
-        font-family: Inter, system-ui, sans-serif;
-      }
-      .photo-strip {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 0.45rem;
-        margin: 0.85rem 0 1rem;
-      }
-      .photo-strip.four { grid-template-columns: repeat(4, 1fr); }
-      .photo-strip img {
+      .menu-page img {
         width: 100%;
         height: auto;
-        max-height: 200px;
-        object-fit: contain;
-        object-position: center;
-        background: #efe6d6;
-        border-radius: 8px;
         display: block;
-      }
-      .cols {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1.4rem;
-      }
-      .print-menu h3 {
-        margin: 0.85rem 0 0.2rem;
-        color: var(--menu-navy);
-        font-size: 0.92rem;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        border-bottom: 2px solid var(--menu-gold);
-        padding-bottom: 0.15rem;
-        font-family: Inter, system-ui, sans-serif;
-      }
-      .print-menu h3:first-child { margin-top: 0; }
-      .row {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        gap: 0.6rem;
-        padding: 0.18rem 0;
-        border-bottom: 1px solid rgba(28, 61, 90, 0.12);
-        font-size: 0.92rem;
-      }
-      .row .price {
-        font-weight: 700;
-        color: var(--menu-navy);
-        white-space: nowrap;
-        font-family: Inter, system-ui, sans-serif;
-      }
-      .note {
-        font-size: 0.82rem;
-        color: #3d6480;
-        margin: 0.2rem 0 0.15rem;
-        font-style: italic;
-      }
-      .wide-shot {
-        margin-top: 0.85rem;
-        width: 100%;
-        height: auto;
-        max-height: 280px;
-        object-fit: contain;
+        cursor: zoom-in;
         background: #efe6d6;
-        border-radius: 8px;
-        display: block;
       }
-      @media (max-width: 720px) {
-        .cols, .print-head, .photo-strip, .photo-strip.four { grid-template-columns: 1fr; }
-        .photo-strip img, .wide-shot { height: auto; max-height: 220px; }
-        .print-menu .bar { flex-direction: column; }
+      .menu-caption { margin: 0.4rem 0 0; color: var(--muted); font-size: 0.9rem; }
+      #menu-zoom[hidden] { display: none; }
+      #menu-zoom {
+        position: fixed; inset: 0; background: rgba(10, 22, 34, 0.92);
+        z-index: 80; display: flex; align-items: center; justify-content: center; padding: 1rem;
+      }
+      #menu-zoom img { max-width: 96vw; max-height: 96vh; width: auto; height: auto; }
+      #menu-zoom button {
+        position: absolute; top: 12px; right: 16px; background: transparent;
+        color: #fff; border: 0; font-size: 2rem; cursor: pointer;
       }
     </style>
   </head>
@@ -157,201 +60,57 @@
       <section class="card restaurant-card">
         <h2>Restaurant Menu</h2>
         <p class="restaurant-tagline">Good Food, Great View, Best Moments</p>
-        <p style="margin-top:0;color:var(--muted)">September 2026 printed menu. Open daily <strong>8:00 AM – 9:00 PM</strong>. Food can be enjoyed throughout the resort.</p>
+        <p style="margin-top:0;color:var(--muted)">The September 2026 printed menu, shown as photographed. Open daily <strong>8:00 AM – 9:00 PM</strong>. Food can be enjoyed throughout the resort.</p>
         <p style="color:var(--muted);font-size:0.95rem">+63 32 507 9856 · +63 956 504 3304 · +1 424 999-9910</p>
-        <p style="color:var(--muted);font-size:0.92rem">All prices are in Philippine pesos. No PDF download.</p>
+        <p style="color:var(--muted);font-size:0.92rem">All prices are in Philippine pesos. Tap a page to enlarge. There is no PDF download.</p>
       </section>
-      <article class="print-menu" aria-label="Printed menu page 1">
-        <div class="bar"><span>Good Food, Great View, Best Moments</span><span>All prices are in Philippine pesos &nbsp; 1</span></div>
-        <div class="inner">
-          <div class="print-head">
-            <img class="logo" src="assets/pictures/FullLogo_Transparent_NoBuffer.png" alt="D&D Coastal Calm Resort" />
-            <div>
-              <h1>MENU</h1>
-              <p class="tag">Filipino favorites, seafood and resort classics</p>
-              <div class="meta">
-                <span>coastal-calm.com</span>
-                <span>+63 32 507 9856</span>
-                <span>+63 956 504 3304</span>
-                <span>+1 424 999-9910</span>
-              </div>
-            </div>
-          </div>
-          <div class="photo-strip">
-            <img src="assets/gallery/77f6562d-9c1e-4b44-a29b-41f0f42cc156.jpg" alt="Steak plate" />
-            <img src="assets/gallery/76649d57-a12e-4f69-9b7a-3410c7950117.jpg" alt="Pork chop with fries" />
-            <img src="assets/gallery/d8b1f814-5d0b-4c64-8b1a-d5d9a2a2230a.jpg" alt="Breaded chicken" />
-          </div>
-          <div class="cols">
-            <div>
-              <h3>Appetizers</h3>
-              <div class="row"><span>Sisig</span><span class="price">₱280</span></div>
-              <div class="row"><span>Calamares</span><span class="price">₱300</span></div>
-              <div class="row"><span>French Fries</span><span class="price">₱180</span></div>
-              <div class="row"><span>Hot Dog</span><span class="price">₱180</span></div>
-              <div class="row"><span>Spring Rolls</span><span class="price">₱250</span></div>
-              <div class="row"><span>Potato Wedges</span><span class="price">₱180</span></div>
-              <div class="row"><span>Onion Rings</span><span class="price">₱300</span></div>
-              <div class="row"><span>Nachos</span><span class="price">₱350</span></div>
-              <h3>Soups</h3>
-              <div class="row"><span>Chicken Tinola</span><span class="price">₱280</span></div>
-              <div class="row"><span>Fish Tinola</span><span class="price">₱280</span></div>
-              <div class="row"><span>Pork Sinigang</span><span class="price">₱300</span></div>
-              <div class="row"><span>Wonton Chicken Soup</span><span class="price">₱310</span></div>
-              <div class="row"><span>Pochero</span><span class="price">₱750</span></div>
-              <div class="row"><span>Fish Sinigang</span><span class="price">₱310</span></div>
-              <div class="row"><span>Shrimp Sinigang</span><span class="price">₱310</span></div>
-              <h3>Salads</h3>
-              <div class="row"><span>Chef Salad</span><span class="price">₱310</span></div>
-              <div class="row"><span>Green Salad</span><span class="price">₱280</span></div>
-              <div class="row"><span>Caesar Salad</span><span class="price">₱310</span></div>
-              <div class="row"><span>Greek Salad</span><span class="price">₱310</span></div>
-              <h3>Steaks</h3>
-              <div class="row"><span>Ribeye</span><span class="price">8 oz ₱1,890 / 16 oz ₱2,990</span></div>
-              <div class="row"><span>T-bone</span><span class="price">₱2,790</span></div>
-              <div class="row"><span>Sirloin</span><span class="price">₱2,590</span></div>
-              <div class="row"><span>6 oz Steak Sandwich</span><span class="price">₱1,190</span></div>
-              <div class="row"><span>4 oz Steak Salad</span><span class="price">₱990</span></div>
-              <div class="row"><span>Add Mushrooms</span><span class="price">₱80</span></div>
-              <h3>Breakfast</h3>
-              <p class="note">Fried, scrambled, boiled or omelet<br />Add-ons: ham, corned beef, chorizo, hotdog, bacon, beef tapa, extra egg, garlic rice, rice or toast</p>
-              <div class="row"><span>Two eggs with rice or toast</span><span class="price">₱290</span></div>
-              <div class="row"><span>Each breakfast add-on</span><span class="price">₱80</span></div>
-            </div>
-            <div>
-              <h3>Main Courses</h3>
-              <div class="row"><span>Breaded Chicken</span><span class="price">₱390</span></div>
-              <div class="row"><span>Breaded Pork Chop</span><span class="price">₱390</span></div>
-              <div class="row"><span>Buttered Chicken</span><span class="price">₱350</span></div>
-              <div class="row"><span>Buttered Shrimp</span><span class="price">₱380</span></div>
-              <div class="row"><span>Crispy Pata</span><span class="price">₱650</span></div>
-              <div class="row"><span>Pancit Canton</span><span class="price">₱280</span></div>
-              <div class="row"><span>Bam-i</span><span class="price">₱280</span></div>
-              <div class="row"><span>Chicken Curry</span><span class="price">₱280</span></div>
-              <div class="row"><span>Lechon Kawali / Bagnet</span><span class="price">₱300</span></div>
-              <div class="row"><span>Fish Kinilaw</span><span class="price">₱280</span></div>
-              <div class="row"><span>Buffalo Wings</span><span class="price">₱300</span></div>
-              <div class="row"><span>Sweet & Sour Fish</span><span class="price">₱280</span></div>
-              <div class="row"><span>Pork Humba</span><span class="price">₱280</span></div>
-              <div class="row"><span>Chicken & Pork Adobo</span><span class="price">₱290</span></div>
-              <div class="row"><span>Pakbet</span><span class="price">₱290</span></div>
-              <div class="row"><span>Gambas</span><span class="price">₱310</span></div>
-              <div class="row"><span>Butter Garlic Shrimp</span><span class="price">₱290</span></div>
-              <div class="row"><span>Shrimp Scampi</span><span class="price">₱290</span></div>
-              <div class="row"><span>Beef with Broccoli</span><span class="price">₱280</span></div>
-              <div class="row"><span>Beef with Mushrooms</span><span class="price">₱280</span></div>
-              <div class="row"><span>Beef with Onion</span><span class="price">₱280</span></div>
-              <div class="row"><span>Beef Cebuano</span><span class="price">₱280</span></div>
-              <div class="row"><span>Baked Salmon</span><span class="price">₱350</span></div>
-              <div class="row"><span>Lemon Buttered Salmon</span><span class="price">₱350</span></div>
-              <div class="row"><span>Chop Suey</span><span class="price">₱280</span></div>
-              <div class="row"><span>Sweet & Sour Pork</span><span class="price">₱280</span></div>
-              <h3>Sandwiches</h3>
-              <div class="row"><span>Sandwiches incl fries</span><span class="price">₱300</span></div>
-              <div class="row"><span>Classic Club Sandwich</span><span class="price"></span></div>
-              <div class="row"><span>Classic BLT Sandwich</span><span class="price"></span></div>
-              <div class="row"><span>Tuna Salad Sandwich</span><span class="price"></span></div>
-              <div class="row"><span>Ham & Cheese Sandwich</span><span class="price"></span></div>
-              <div class="row"><span>Classic Hamburger incl fries</span><span class="price">₱350</span></div>
-              <h3>Rice</h3>
-              <div class="row"><span>D&D Special Fried Rice</span><span class="price">₱300</span></div>
-              <div class="row"><span>Garlic Rice Platter</span><span class="price">₱210</span></div>
-              <div class="row"><span>Plain Rice Platter</span><span class="price">₱160</span></div>
-              <div class="row"><span>Cup of Rice</span><span class="price">₱30</span></div>
-              <div class="row"><span>Cup of Garlic Rice</span><span class="price">₱45</span></div>
-            </div>
-          </div>
-        </div>
-      </article>
-      <article class="print-menu" aria-label="Printed menu page 2">
-        <div class="bar"><span>Good Food, Great View, Best Moments</span><span>All prices are in Philippine pesos &nbsp; 2</span></div>
-        <div class="inner">
-          <div class="print-head">
-            <img class="logo" src="assets/pictures/FullLogo_Transparent_NoBuffer.png" alt="D&D Coastal Calm Resort" />
-            <div>
-              <h1>PIZZA, PASTA & DRINKS</h1>
-              <p class="tag">Freshly made favorites and chilled refreshments</p>
-              <div class="meta">
-                <span>coastal-calm.com</span>
-                <span>+63 32 507 9856</span>
-                <span>+63 956 504 3304</span>
-                <span>+1 424 999-9910</span>
-              </div>
-            </div>
-          </div>
-          <div class="photo-strip four">
-            <img src="assets/gallery/ea127f2b-21a8-48b5-99b6-c63e3c2670cb.jpg" alt="D&D Special Pizza" />
-            <img src="assets/gallery/17d22207-f941-4db6-931d-7f057a96ebc9.jpg" alt="Pasta" />
-            <img src="assets/gallery/20429669-bc8d-463a-b726-5412b0cfb4a3.jpg" alt="Mango shakes" />
-            <img src="assets/gallery/3a6ba756-8d3b-4aa4-99f0-14fb407df770.jpg" alt="Hawaiian pizza" />
-          </div>
-          <div class="cols">
-            <div>
-              <h3>Pasta</h3>
-              <div class="row"><span>Pasta</span><span class="price">₱300</span></div>
-              <div class="row"><span>Carbonara</span><span class="price"></span></div>
-              <div class="row"><span>Aglio e Olio</span><span class="price"></span></div>
-              <div class="row"><span>Bolognese</span><span class="price"></span></div>
-              <div class="row"><span>Tuna Pasta</span><span class="price"></span></div>
-              <div class="row"><span>Penne Arrabbiata</span><span class="price"></span></div>
-              <div class="row"><span>Mac & Cheese</span><span class="price"></span></div>
-              <h3>Pizza</h3>
-              <p class="note">10 inch (1–2 people) / 14 inch (3–4 people)</p>
-              <div class="row"><span>D&D Special Pizza</span><span class="price">₱480 / ₱800</span></div>
-              <div class="row"><span>Meat Lovers</span><span class="price">₱450 / ₱780</span></div>
-              <div class="row"><span>Pepperoni</span><span class="price">₱390 / ₱720</span></div>
-              <div class="row"><span>Hawaiian</span><span class="price">₱390 / ₱720</span></div>
-              <div class="row"><span>Veggie Pizza</span><span class="price">₱350 / ₱680</span></div>
-              <p class="note">Extra toppings ₱90</p>
-              <h3>Shakes</h3>
-              <div class="row"><span>Regular / Large</span><span class="price">₱90 / ₱170</span></div>
-              <div class="row"><span>Watermelon</span><span class="price"></span></div>
-              <div class="row"><span>Pineapple</span><span class="price"></span></div>
-              <div class="row"><span>Mango</span><span class="price"></span></div>
-              <div class="row"><span>Banana</span><span class="price"></span></div>
-              <div class="row"><span>Buko</span><span class="price"></span></div>
-              <h3>Juices & Iced Tea</h3>
-              <div class="row"><span>Glass / Pitcher</span><span class="price">₱90 / ₱280</span></div>
-              <div class="row"><span>Four Seasons</span><span class="price"></span></div>
-              <div class="row"><span>Nestea</span><span class="price"></span></div>
-              <div class="row"><span>Mango</span><span class="price"></span></div>
-              <div class="row"><span>Orange</span><span class="price"></span></div>
-              <div class="row"><span>Pineapple</span><span class="price"></span></div>
-            </div>
-            <div>
-              <h3>Water</h3>
-              <div class="row"><span>Bottled Water 500 ml</span><span class="price">₱30</span></div>
-              <h3>Coffee & Tea</h3>
-              <div class="row"><span>Brewed Coffee or Tea</span><span class="price">₱80</span></div>
-              <div class="row"><span>Specialty Coffees (latte, etc.)</span><span class="price">₱170</span></div>
-              <h3>Beer & Coolers</h3>
-              <div class="row"><span>1 L Red Horse or San Miguel Beer</span><span class="price">₱170</span></div>
-              <div class="row"><span>Local bottled beers & coolers</span><span class="price">₱90</span></div>
-              <h3>Soft Drinks</h3>
-              <div class="row"><span>Small bottles: Pepsi, 7-Up, Mirinda and C2</span><span class="price">₱50</span></div>
-              <div class="row"><span>355 ml: Mountain Dew and Tropicana</span><span class="price">₱70</span></div>
-              <div class="row"><span>Cans: Coke, Diet Coke, Coke Zero, Royal and Sprite, plus Gatorade 500 ml</span><span class="price">₱90</span></div>
-              <div class="row"><span>Coke 1.5 L</span><span class="price">₱150</span></div>
-              <h3>Wine & Spirits</h3>
-              <p class="note">Ask your server for available labels</p>
-              <div class="row"><span>House red or white, glass</span><span class="price">₱300</span></div>
-              <div class="row"><span>Spirits, 1 oz shot</span><span class="price">₱90</span></div>
-              <div class="row"><span>Spirits, bottle</span><span class="price">₱1,500</span></div>
-              <img class="wide-shot" src="assets/pictures/gallery-pool.jpeg" alt="Sunset drinks by the sea" />
-            </div>
-          </div>
-          <img class="wide-shot" src="assets/pictures/gallery-hearts.jpeg" alt="Heart chairs facing the Camotes sea" />
-        </div>
-      </article>
+      <div class="menu-pages">
+        <figure class="menu-page">
+          <img id="menu-p1" src="assets/menu/sep2026-page1.jpg" alt="Printed menu page 1 — appetizers, soups, salads, steaks, breakfast, mains, sandwiches and rice" />
+          <figcaption class="menu-caption">Page 1 of 2</figcaption>
+        </figure>
+        <figure class="menu-page">
+          <img id="menu-p2" src="assets/menu/sep2026-page2.jpg" alt="Printed menu page 2 — pasta, pizza, shakes, juices, drinks and wine" />
+          <figcaption class="menu-caption">Page 2 of 2</figcaption>
+        </figure>
+      </div>
     </main>
+    <div id="menu-zoom" hidden>
+      <button type="button" id="menu-zoom-close" aria-label="Close">×</button>
+      <img id="menu-zoom-img" alt="Enlarged menu page" />
+    </div>
     <footer class="site-footer">
       <div class="container footer-inner">
         <strong>D&D Coastal Calm Resort</strong>
         <p class="footer-location">Mercedes, Poro · Camotes Islands, Cebu, Philippines</p>
-        <p><a href="index.html">Home</a> · <a href="menu.html">Menu</a> · <a href="events.html">Events</a> · <a href="contact.html">Contact</a></p>
+        <p><a href="https://letsbook.me/booking/ddcoastalcalmresort" target="_blank" rel="noopener">Book a stay</a> · <a href="menu.html">Menu</a> · <a href="events.html">Events</a> · <a href="gallery.html">Gallery</a> · <a href="rooms.html">Rooms</a> · <a href="policies.html">Policies</a> · <a href="about.html">Our Story</a></p>
+        <p style="margin-top: 0.75rem;"><a href="https://www.facebook.com/profile.php?id=61582908533946" target="_blank" rel="noopener">Facebook</a> · <a href="https://www.youtube.com/@d_d_coastal_calm" target="_blank" rel="noopener">YouTube</a></p>
+        <p><a href="contact.html">Contact</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="policies.html">House rules</a></p>
         <small>© <span id="year"></span> D&D Coastal Calm Resort</small>
       </div>
     </footer>
-    <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+      (function () {
+        var zoom = document.getElementById("menu-zoom");
+        var zimg = document.getElementById("menu-zoom-img");
+        function openZoom(el) {
+          if (!el.src) return;
+          zimg.src = el.src;
+          zimg.alt = el.alt;
+          zoom.hidden = false;
+          document.body.style.overflow = "hidden";
+        }
+        function closeZoom() {
+          zoom.hidden = true;
+          document.body.style.overflow = "";
+        }
+        document.getElementById("menu-p1").addEventListener("click", function () { openZoom(this); });
+        document.getElementById("menu-p2").addEventListener("click", function () { openZoom(this); });
+        document.getElementById("menu-zoom-close").onclick = closeZoom;
+        zoom.addEventListener("click", function (e) { if (e.target === zoom) closeZoom(); });
+        document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeZoom(); });
+      })();
+    </script>
   </body>
 </html>
