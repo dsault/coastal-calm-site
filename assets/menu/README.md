@@ -1,1 +1,6 @@
-Printed September 2026 menu pages are assembled in the browser from p1-*.js and p2-*.js chunks as JPEG data URIs so the on-screen menu matches the paper menu exactly.
+Put the two photographed menu pages here:
+
+- sep2026-page1.jpg
+- sep2026-page2.jpg
+
+menu.html displays these files. Do not add a downloadable PDF.
