@@ -4,36 +4,38 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Menu | D&D Coastal Calm Resort</title>
-    <meta name="description" content="Restaurant menu at D&D Coastal Calm Resort. Open daily 8:00 AM – 10:00 PM." />
+    <meta name="description" content="Restaurant menu and online ordering at D&D Coastal Calm Resort. Delivery, takeout, and room service. Open daily 8:00 AM – 10:00 PM." />
     <link rel="stylesheet" href="styles.css" />
     <style>
-      .menu-pages { display: grid; gap: 1.25rem; max-width: 920px; margin: 0 auto 1.5rem; }
-      .menu-page {
-        background: #f6efe3;
-        border: 1px solid #d8c9b0;
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 10px 30px rgba(22, 50, 74, 0.12);
-        margin: 0;
-      }
-      .menu-page img {
-        width: 100%;
-        height: auto;
-        display: block;
-        cursor: zoom-in;
-        background: #efe6d6;
-      }
+      .menu-pages { display: grid; gap: 1.25rem; max-width: 920px; margin: 0 auto 0.25rem; }
+      .menu-page { background: #f6efe3; border: 1px solid #d8c9b0; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(22, 50, 74, 0.12); margin: 0; }
+      .menu-page img { width: 100%; height: auto; display: block; cursor: zoom-in; background: #efe6d6; }
       .menu-caption { margin: 0.4rem 0 0; color: var(--muted); font-size: 0.9rem; }
       #menu-zoom[hidden] { display: none; }
-      #menu-zoom {
-        position: fixed; inset: 0; background: rgba(10, 22, 34, 0.92);
-        z-index: 80; display: flex; align-items: center; justify-content: center; padding: 1rem;
-      }
+      #menu-zoom { position: fixed; inset: 0; background: rgba(10, 22, 34, 0.92); z-index: 80; display: flex; align-items: center; justify-content: center; padding: 1rem; }
       #menu-zoom img { max-width: 96vw; max-height: 96vh; width: auto; height: auto; }
-      #menu-zoom button {
-        position: absolute; top: 12px; right: 16px; background: transparent;
-        color: #fff; border: 0; font-size: 2rem; cursor: pointer;
-      }
+      #menu-zoom button { position: absolute; top: 12px; right: 16px; background: transparent; color: #fff; border: 0; font-size: 2rem; cursor: pointer; }
+      .order-wrap { display: grid; grid-template-columns: 1.4fr 0.8fr; gap: 1.25rem; align-items: start; }
+      .order-types { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0.75rem 0 1rem; }
+      .order-types label { border: 1px solid var(--border); background: #fff; border-radius: 999px; padding: 0.45rem 0.9rem; font-weight: 600; cursor: pointer; }
+      .order-types input { margin-right: 0.35rem; }
+      .order-cat { margin-bottom: 1rem; }
+      .order-cat h3 { margin: 0 0 0.35rem; color: var(--accent-dark); font-size: 1rem; letter-spacing: 0.04em; text-transform: uppercase; border-bottom: 1px solid var(--border); padding-bottom: 0.2rem; }
+      .order-item { display: grid; grid-template-columns: 1fr auto auto; gap: 0.6rem; align-items: center; padding: 0.35rem 0; border-bottom: 1px solid #eef4f8; font-size: 0.95rem; }
+      .order-price { font-weight: 700; color: var(--accent-dark); white-space: nowrap; }
+      .order-add { padding: 0.35rem 0.7rem; font-size: 0.85rem; }
+      .order-side { position: sticky; top: 5.5rem; background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 1rem; }
+      .order-cart-row { display: grid; grid-template-columns: 1fr auto auto; gap: 0.4rem; align-items: center; padding: 0.3rem 0; font-size: 0.92rem; }
+      .order-remove { border: 0; background: transparent; color: #8a3a32; font-size: 1.2rem; cursor: pointer; }
+      .order-form { display: grid; gap: 0.55rem; margin-top: 0.85rem; }
+      .order-form input, .order-form textarea, .order-form select { border: 1px solid var(--border); border-radius: 8px; padding: 0.6rem 0.7rem; font: inherit; }
+      .order-form label { font-weight: 600; font-size: 0.92rem; }
+      .order-alert { background: #fff6f4; border: 1px solid #e8c4bc; border-radius: 10px; padding: 0.7rem 0.85rem; color: #8a3a32; }
+      .order-thanks { background: #eef8f1; border: 1px solid #c5e0d0; border-radius: 12px; padding: 0.9rem 1rem; margin-top: 0.8rem; }
+      .order-hist { padding: 0.45rem 0; border-bottom: 1px solid var(--border); font-size: 0.92rem; }
+      .order-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; }
+      #gps-map { width: 100%; height: 180px; border: 0; border-radius: 10px; margin-top: 0.4rem; }
+      @media (max-width: 820px) { .order-wrap { grid-template-columns: 1fr; } .order-side { position: static; } }
     </style>
   </head>
   <body>
@@ -60,9 +62,10 @@
       <section class="card restaurant-card">
         <h2>Restaurant Menu</h2>
         <p class="restaurant-tagline">Good Food, Great View, Best Moments</p>
-        <p style="margin-top:0;color:var(--muted)">The printed menu, shown as photographed. Open daily <strong>8:00 AM – 10:00 PM</strong>. Food can be enjoyed throughout the resort.</p>
+        <p style="margin-top:0;color:var(--muted)">Open daily <strong>8:00 AM – 10:00 PM</strong>. Food can be enjoyed throughout the resort.</p>
         <p style="color:var(--muted);font-size:0.95rem">+63 32 507 9856 · +63 956 504 3304 · +1 424 999-9910</p>
-        <p style="color:var(--muted);font-size:0.92rem">All prices are in Philippine pesos. Tap a page to enlarge. There is no PDF download.</p>
+        <p style="color:var(--muted);font-size:0.92rem">All prices are in Philippine pesos. Tap a page to enlarge.</p>
+        <p style="margin-bottom:0"><a class="btn" href="#order">Order delivery, takeout or room service</a></p>
       </section>
       <div class="menu-pages">
         <figure class="menu-page">
@@ -74,6 +77,58 @@
           <figcaption class="menu-caption">Page 2 of 2</figcaption>
         </figure>
       </div>
+      <section class="card" id="order">
+        <h2>Order Online</h2>
+        <p class="restaurant-tagline">Delivery · Takeout · Room service</p>
+        <p style="color:var(--muted);margin-top:0">Choose a service type, add items, and send the order to the restaurant. We keep your name, email, phone, address, and last GPS pin on this device so the next order is faster.</p>
+        <div class="order-types" role="radiogroup" aria-label="Order type">
+          <label><input type="radio" name="order-type" value="delivery" checked /> Delivery</label>
+          <label><input type="radio" name="order-type" value="takeout" /> Takeout</label>
+          <label><input type="radio" name="order-type" value="room" /> Room service</label>
+        </div>
+        <div class="order-wrap">
+          <div><div id="order-catalog"></div></div>
+          <aside class="order-side">
+            <h3>Your order</h3>
+            <div id="order-cart-items"></div>
+            <p><strong>Total: <span id="order-total">₱0</span></strong></p>
+            <form class="order-form" id="order-form">
+              <label for="order-name">Name</label>
+              <input id="order-name" name="name" type="text" required maxlength="80" autocomplete="name" />
+              <label for="order-email">Email</label>
+              <input id="order-email" name="email" type="email" required maxlength="120" autocomplete="email" />
+              <label for="order-phone">Phone</label>
+              <input id="order-phone" name="phone" type="tel" required maxlength="30" autocomplete="tel" />
+              <div id="room-fields" hidden>
+                <label for="order-room">Room number</label>
+                <input id="order-room" name="room" type="text" maxlength="40" />
+              </div>
+              <div id="address-fields">
+                <label for="order-address">Delivery address</label>
+                <textarea id="order-address" name="address" rows="3" maxlength="300" placeholder="House or hotel, street, barangay, municipality"></textarea>
+              </div>
+              <div id="gps-fields">
+                <button type="button" class="btn btn-secondary" id="use-gps" style="margin:0">Use my GPS location</button>
+                <p id="gps-status" class="form-note" style="margin-top:0.4rem">For delivery, drop a Google Maps pin so the rider can find you.</p>
+                <iframe id="gps-map" title="Delivery map pin" hidden></iframe>
+                <p><a id="gps-link" hidden target="_blank" rel="noopener">Open pin in Google Maps</a></p>
+              </div>
+              <label for="order-notes">Notes</label>
+              <textarea id="order-notes" name="notes" rows="2" maxlength="300" placeholder="Allergies, extra rice, gate instructions…"></textarea>
+              <p id="order-alert" class="order-alert" hidden></p>
+              <button type="submit" class="btn">Place order</button>
+            </form>
+            <div id="order-thanks" class="order-thanks" hidden>
+              <p id="order-thanks-text"></p>
+              <div class="order-actions">
+                <a class="btn" id="order-wa" target="_blank" rel="noopener">Send by WhatsApp</a>
+                <a class="btn btn-secondary" id="order-mail">Send by email</a>
+              </div>
+            </div>
+            <div id="order-history"></div>
+          </aside>
+        </div>
+      </section>
     </main>
     <div id="menu-zoom" hidden>
       <button type="button" id="menu-zoom-close" aria-label="Close">×</button>
@@ -90,7 +145,6 @@
       </div>
     </footer>
     <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
       (function () {
         var zoom = document.getElementById("menu-zoom");
         var zimg = document.getElementById("menu-zoom-img");
@@ -112,5 +166,6 @@
         document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeZoom(); });
       })();
     </script>
+    <script src="assets/order.js"></script>
   </body>
 </html>
