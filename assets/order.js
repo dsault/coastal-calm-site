@@ -75,6 +75,7 @@
 
   var PROFILE_KEY = "ddcc-customer";
   var ORDERS_KEY = "ddcc-orders";
+  var DELIVERY_FEE = 150;
   var cart = [];
   var coords = { lat: null, lng: null };
 
@@ -88,6 +89,33 @@
     try { return JSON.parse(localStorage.getItem(ORDERS_KEY) || "[]"); } catch (e) { return []; }
   }
   function saveOrders(list) { localStorage.setItem(ORDERS_KEY, JSON.stringify(list)); }
+  function serviceType() {
+    var el = document.querySelector('input[name="order-type"]:checked');
+    return el ? el.value : "delivery";
+  }
+  function tipMode() {
+    var el = document.querySelector('input[name="order-tip"]:checked');
+    return el ? el.value : "none";
+  }
+  function subtotal() {
+    return cart.reduce(function (sum, c) { return sum + c.price * c.qty; }, 0);
+  }
+  function deliveryFee() {
+    return serviceType() === "delivery" ? DELIVERY_FEE : 0;
+  }
+  function tipAmount() {
+    var mode = tipMode();
+    var base = subtotal();
+    if (mode === "15") return Math.round(base * 0.15);
+    if (mode === "other") {
+      var n = Number($("order-tip-custom").value);
+      return isFinite(n) && n > 0 ? Math.round(n) : 0;
+    }
+    return 0;
+  }
+  function grandTotal() {
+    return subtotal() + deliveryFee() + tipAmount();
+  }
 
   function renderCatalog() {
     var root = $("order-catalog");
@@ -116,38 +144,33 @@
     });
   }
 
-  function cartTotal() {
-    return cart.reduce(function (sum, c) { return sum + c.price * c.qty; }, 0);
-  }
-
   function renderCart() {
     var box = $("order-cart-items");
     if (!cart.length) {
       box.innerHTML = '<p class="form-note">Your cart is empty. Add items from the menu.</p>';
-      $("order-total").textContent = peso(0);
-      return;
-    }
-    box.innerHTML = cart.map(function (c, i) {
-      return '<div class="order-cart-row">' +
-        "<span>" + c.qty + " \u00d7 " + c.name + "</span>" +
-        "<span>" + peso(c.price * c.qty) + "</span>" +
-        '<button type="button" class="order-remove" data-i="' + i + '" aria-label="Remove">\u00d7</button>' +
-        "</div>";
-    }).join("");
-    $("order-total").textContent = peso(cartTotal());
-    box.querySelectorAll(".order-remove").forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        var i = Number(btn.getAttribute("data-i"));
-        if (cart[i].qty > 1) cart[i].qty -= 1;
-        else cart.splice(i, 1);
-        renderCart();
+    } else {
+      box.innerHTML = cart.map(function (c, i) {
+        return '<div class="order-cart-row">' +
+          "<span>" + c.qty + " \u00d7 " + c.name + "</span>" +
+          "<span>" + peso(c.price * c.qty) + "</span>" +
+          '<button type="button" class="order-remove" data-i="' + i + '" aria-label="Remove">\u00d7</button>' +
+          "</div>";
+      }).join("");
+      box.querySelectorAll(".order-remove").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var i = Number(btn.getAttribute("data-i"));
+          if (cart[i].qty > 1) cart[i].qty -= 1;
+          else cart.splice(i, 1);
+          renderCart();
+        });
       });
-    });
-  }
-
-  function serviceType() {
-    var el = document.querySelector('input[name="order-type"]:checked');
-    return el ? el.value : "delivery";
+    }
+    $("order-tip-custom-wrap").hidden = tipMode() !== "other";
+    $("order-subtotal").textContent = peso(subtotal());
+    $("order-fee-row").hidden = serviceType() !== "delivery";
+    $("order-fee").textContent = peso(deliveryFee());
+    $("order-tip-amount").textContent = peso(tipAmount());
+    $("order-total").textContent = peso(grandTotal());
   }
 
   function updateServiceFields() {
@@ -157,6 +180,7 @@
     $("gps-fields").hidden = type !== "delivery";
     $("order-address").required = type === "delivery";
     $("order-room").required = type === "room";
+    renderCart();
   }
 
   function fillProfile() {
@@ -219,6 +243,9 @@
     order.items.forEach(function (c) {
       lines.push("- " + c.qty + " x " + c.name + " (" + peso(c.price * c.qty) + ")");
     });
+    lines.push("Subtotal: " + peso(order.subtotal));
+    if (order.deliveryFee) lines.push("Delivery fee: " + peso(order.deliveryFee));
+    if (order.tip) lines.push("Tip: " + peso(order.tip));
     lines.push("Total: " + peso(order.total));
     if (order.notes) lines.push("Notes: " + order.notes);
     return lines.join("\n");
@@ -259,7 +286,10 @@
       lat: type === "delivery" ? coords.lat : null,
       lng: type === "delivery" ? coords.lng : null,
       items: cart.map(function (c) { return { name: c.name, price: c.price, qty: c.qty }; }),
-      total: cartTotal()
+      subtotal: subtotal(),
+      deliveryFee: deliveryFee(),
+      tip: tipAmount(),
+      total: grandTotal()
     };
     if (type === "delivery" && !order.address && !(order.lat && order.lng)) {
       $("order-alert").textContent = "For delivery, add an address or drop a GPS pin.";
@@ -297,6 +327,10 @@
   document.querySelectorAll('input[name="order-type"]').forEach(function (el) {
     el.addEventListener("change", updateServiceFields);
   });
+  document.querySelectorAll('input[name="order-tip"]').forEach(function (el) {
+    el.addEventListener("change", renderCart);
+  });
+  $("order-tip-custom").addEventListener("input", renderCart);
   $("use-gps").addEventListener("click", useLocation);
   $("order-form").addEventListener("submit", submitOrder);
 })();
