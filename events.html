@@ -139,9 +139,12 @@
           </select>
           <label for="event-notes">Additional details</label>
           <textarea id="event-notes" name="notes" rows="4" placeholder="Tell us more about your event, catering needs, or special requests..."></textarea>
-          <button type="submit" class="btn">Send via WhatsApp</button>
+          <p style="font-weight:600;margin:0.4rem 0 0.2rem;">Send this inquiry by</p>
+          <label style="font-weight:500;"><input type="radio" name="contact-method" value="whatsapp" checked /> WhatsApp — +63 956 504 3304</label>
+          <label style="font-weight:500;"><input type="radio" name="contact-method" value="email" /> Email — info@coastal-calm.com</label>
+          <button type="submit" class="btn">Send Inquiry</button>
         </form>
-        <p class="form-note" style="margin-top: 1rem;">Submit opens WhatsApp to +63 956 504 3304 with your inquiry ready to send. You can also message that number directly.</p>
+        <p class="form-note" style="margin-top: 1rem;">Choose WhatsApp or email. Submit opens that app with your details ready to send to +63 956 504 3304 or info@coastal-calm.com.</p>
       </section>
 
       <section class="card">
@@ -180,6 +183,8 @@
       document.getElementById("event-inquiry").addEventListener("submit", function (e) {
         e.preventDefault();
         function val(id) { return (document.getElementById(id).value || "").trim(); }
+        var methodEl = document.querySelector('input[name="contact-method"]:checked');
+        var method = methodEl ? methodEl.value : "whatsapp";
         var lines = [
           "Event inquiry — D&D Coastal Calm Resort",
           "Name: " + val("event-name"),
@@ -191,8 +196,14 @@
           "Preferred venue: " + (val("event-venue") || "No preference / Discuss"),
           "Details: " + (val("event-notes") || "(none)")
         ];
-        var url = "https://wa.me/639565043304?text=" + encodeURIComponent(lines.join("\n"));
-        window.open(url, "_blank", "noopener");
+        var text = lines.join("\n");
+        if (method === "email") {
+          window.location.href = "mailto:info@coastal-calm.com?subject=" +
+            encodeURIComponent("Event inquiry — " + val("event-name")) +
+            "&body=" + encodeURIComponent(text);
+        } else {
+          window.open("https://wa.me/639565043304?text=" + encodeURIComponent(text), "_blank", "noopener");
+        }
       });
     </script>
   </body>
