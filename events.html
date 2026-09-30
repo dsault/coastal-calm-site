@@ -127,14 +127,14 @@
           <label for="event-date">Preferred Date</label>
           <input id="event-date" name="date" type="date" />
           <label for="event-guests">Estimated Guests</label>
-          <input id="event-guests" name="guests" type="number" min="10" max="250" placeholder="e.g. 80" />
+          <input id="event-guests" name="guests" type="number" min="1" placeholder="e.g. 80" />
           <label for="event-venue">Preferred Venue</label>
           <select id="event-venue" name="venue">
             <option value="">No preference / Discuss</option>
             <option>Event Tent (up to 200)</option>
             <option>Function Hall (50–100)</option>
             <option>Pool Deck with Tents</option>
-            <option>Bamboo / Small Tents</option>
+            <option>Bamboo structures</option>
             <option>Combination of venues</option>
           </select>
           <label for="event-notes">Additional details</label>
@@ -202,7 +202,7 @@
             encodeURIComponent("Event inquiry — " + val("event-name")) +
             "&body=" + encodeURIComponent(text);
         } else {
-          window.open("https://wa.me/639565043304?text=" + encodeURIComponent(text), "_blank", "noopener");
+          window.location.href = "https://api.whatsapp.com/send?phone=639565043304&text=" + encodeURIComponent(text);
         }
       });
     </script>
