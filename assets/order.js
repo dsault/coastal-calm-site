@@ -305,8 +305,8 @@
     all.unshift(order);
     saveOrders(all.slice(0, 30));
     var body = orderText(order);
-    var wa = "https://wa.me/639609113729?text=" + encodeURIComponent(body);
-    var mail = "mailto:stay@coastal-calm.com?subject=" + encodeURIComponent("Food order " + order.id) +
+    var wa = "https://wa.me/639565043304?text=" + encodeURIComponent(body);
+    var mail = "mailto:info@coastal-calm.com?subject=" + encodeURIComponent("Food order " + order.id) +
       "&body=" + encodeURIComponent(body);
     $("order-alert").hidden = true;
     $("order-thanks").hidden = false;
