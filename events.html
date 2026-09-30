@@ -107,7 +107,7 @@
       <section class="card">
         <h2>Inquire About Your Event</h2>
         <p>Tell us about your planned event and we will get back to you with availability and options.</p>
-        <form class="booking-form" action="#" method="post" style="margin-top: 1.25rem;">
+        <form class="booking-form" id="event-inquiry" style="margin-top: 1.25rem;">
           <label for="event-name">Your Name</label>
           <input id="event-name" name="name" type="text" required />
           <label for="event-email">Email</label>
@@ -139,9 +139,9 @@
           </select>
           <label for="event-notes">Additional details</label>
           <textarea id="event-notes" name="notes" rows="4" placeholder="Tell us more about your event, catering needs, or special requests..."></textarea>
-          <button type="submit" class="btn">Send Event Inquiry</button>
+          <button type="submit" class="btn">Send via WhatsApp</button>
         </form>
-        <p class="form-note" style="margin-top: 1rem;">This form is currently a demo. We can connect it to email or WhatsApp so you receive inquiries directly.</p>
+        <p class="form-note" style="margin-top: 1rem;">Submit opens WhatsApp to +63 956 504 3304 with your inquiry ready to send. You can also message that number directly.</p>
       </section>
 
       <section class="card">
@@ -176,5 +176,24 @@
     </footer>
     <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
     <script src="assets/event-zoom.js"></script>
+    <script>
+      document.getElementById("event-inquiry").addEventListener("submit", function (e) {
+        e.preventDefault();
+        function val(id) { return (document.getElementById(id).value || "").trim(); }
+        var lines = [
+          "Event inquiry — D&D Coastal Calm Resort",
+          "Name: " + val("event-name"),
+          "Email: " + val("event-email"),
+          "Phone: " + (val("event-phone") || "(not given)"),
+          "Event type: " + val("event-type"),
+          "Preferred date: " + (val("event-date") || "(not given)"),
+          "Estimated guests: " + (val("event-guests") || "(not given)"),
+          "Preferred venue: " + (val("event-venue") || "No preference / Discuss"),
+          "Details: " + (val("event-notes") || "(none)")
+        ];
+        var url = "https://wa.me/639565043304?text=" + encodeURIComponent(lines.join("\n"));
+        window.open(url, "_blank", "noopener");
+      });
+    </script>
   </body>
 </html>
