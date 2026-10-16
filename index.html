@@ -10,6 +10,11 @@
       .hero-video-wrapper { position: relative; width: 100%; border-radius: 16px; overflow: hidden; background: #000; aspect-ratio: 16 / 9; max-height: 480px; }
       .hero-video-wrapper video { width: 100%; height: 100%; object-fit: cover; display: block; }
       .hero-video-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0.25) 100%); pointer-events: none; }
+      .guest-videos-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; margin-top: 1.25rem; max-width: 760px; }
+      .guest-video { margin: 0; }
+      .guest-video video { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; border-radius: 16px; box-shadow: 0 6px 24px rgba(0,0,0,0.12); background: #000; display: block; }
+      .guest-video figcaption { margin-top: 0.6rem; font-size: 0.92rem; color: var(--muted); }
+      @media (max-width: 640px) { .guest-videos-grid { grid-template-columns: 1fr; } }
       .sound-toggle { position: absolute; bottom: 14px; right: 14px; z-index: 5; background: rgba(0,0,0,0.55); color: #fff; border: none; width: 42px; height: 42px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; backdrop-filter: blur(4px); }
     </style>
   </head>
@@ -150,6 +155,24 @@
         </form>
         <p class="comment-thanks" id="comment-thanks">Salamat! Your comment has been added below. You can also share photos on our <a href="https://www.facebook.com/profile.php?id=61582908533946" target="_blank" rel="noopener">Facebook page</a>.</p>
         <p class="form-note">Comments you submit appear on this device right away. Message us on Facebook if you would like a note featured for all visitors.</p>
+      </section>
+      <section class="card guest-videos-card" id="guest-videos">
+        <h2>What Our Guests Say</h2>
+        <p class="restaurant-tagline" style="margin-top: 0.25rem;">Guest videos from their stay</p>
+        <div class="guest-videos-grid">
+          <figure class="guest-video">
+            <video controls playsinline preload="metadata" poster="assets/videos/guest_reel-poster.jpg">
+              <source src="assets/videos/guest_reel.mp4" type="video/mp4">
+            </video>
+            <figcaption><em>“Come Visit D&amp;D coastal calm resort”</em><br>Video by CE LI NE</figcaption>
+          </figure>
+          <figure class="guest-video">
+            <video controls playsinline preload="metadata" poster="assets/videos/mikkay_reel-poster.jpg">
+              <source src="assets/videos/mikkay_reel.mp4" type="video/mp4">
+            </video>
+            <figcaption><em>“Come visit the D&amp;D Coastal Calm Resort. Very affordable but Luxurious”</em><br>Video by Mikkay Luhh</figcaption>
+          </figure>
+        </div>
       </section>
       <section class="card">
         <h2>How to Get Here</h2>
