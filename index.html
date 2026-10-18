@@ -16,6 +16,7 @@
       .guest-video figcaption { margin-top: 0.6rem; font-size: 0.92rem; color: var(--muted); }
       @media (max-width: 640px) { .guest-videos-grid { grid-template-columns: 1fr; } }
       .sound-toggle { position: absolute; bottom: 14px; right: 14px; z-index: 5; background: rgba(0,0,0,0.55); color: #fff; border: none; width: 42px; height: 42px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; backdrop-filter: blur(4px); }
+      .event-poster { width: 100%; max-width: 420px; border-radius: 16px; box-shadow: 0 8px 28px rgba(0,0,0,0.15); }
     </style>
   </head>
   <body>
@@ -64,6 +65,33 @@
           </div>
         </div>
       </section>
+
+      <!-- Upcoming Event -->
+      <section class="card event-card" id="upcoming-event">
+        <div class="event-layout">
+          <div class="event-main">
+            <span style="display:inline-block; background:#e11d48; color:#fff; font-size:0.75rem; font-weight:700; letter-spacing:0.08em; padding:0.3rem 0.8rem; border-radius:999px;">LIVE BAND + RAFFLE</span>
+            <h2 style="margin-top:0.75rem;">D'babylon Vernz</h2>
+            <p class="restaurant-tagline">Good Music • Good Vibes • One Island</p>
+            <p class="event-datetime"><strong>Saturday, November 1, 2026</strong> · Live at D&D Coastal Calm Resort</p>
+            <p style="margin:0.9rem 0;">Join us for a night of live reggae vibes with D'babylon Vernz, plus a big raffle draw with cash and resort credit prizes!</p>
+            <ul style="line-height:1.7; margin:0.5rem 0 1rem; padding-left:1.1rem;">
+              <li><strong>Ticket:</strong> ₱50 only</li>
+              <li><strong>1st Prize:</strong> ₱10,000 · <strong>2nd:</strong> ₱4,000 · <strong>3rd:</strong> ₱2,000 · <strong>Early Bird:</strong> ₱1,000</li>
+              <li>All prizes: 50% cash / 50% 3-month resort credit</li>
+              <li>Must be present at the draw to win</li>
+              <li>Early Bird Draw at 9:30 PM · Main Draw at Midnight</li>
+              <li>Your ticket is your entrance until 9:30 PM</li>
+              <li>Entrance ₱35 after 9:30 PM until 11:00 PM · ₱50 after 11:00 PM</li>
+            </ul>
+            <p style="font-style:italic; color:var(--muted);">See you at D&D Coastal Calm Resort!</p>
+          </div>
+          <aside class="event-side" aria-label="Event poster">
+            <img src="assets/pictures/next_event.png" alt="D'babylon Vernz Live Band + Raffle Draw – November 1 at D&D Coastal Calm Resort" class="event-poster" loading="lazy" decoding="async" />
+          </aside>
+        </div>
+      </section>
+
       <section class="card">
         <h2>What’s New</h2>
         <p class="restaurant-tagline" style="margin-top: 0.25rem;">Going Solar</p>
@@ -164,13 +192,13 @@
             <video controls playsinline preload="metadata" poster="assets/videos/guest_reel-poster.jpg">
               <source src="assets/videos/guest_reel.mp4" type="video/mp4">
             </video>
-            <figcaption><em>“Come Visit D&amp;D coastal calm resort”</em><br>Video by CE LI NE</figcaption>
+            <figcaption><em>“Come Visit D&D coastal calm resort”</em><br>Video by CE LI NE</figcaption>
           </figure>
           <figure class="guest-video">
             <video controls playsinline preload="metadata" poster="assets/videos/mikkay_reel-poster.jpg">
               <source src="assets/videos/mikkay_reel.mp4" type="video/mp4">
             </video>
-            <figcaption><em>“Come visit the D&amp;D Coastal Calm Resort. Very affordable but Luxurious”</em><br>Video by Mikkay Luhh</figcaption>
+            <figcaption><em>“Come visit the D&D Coastal Calm Resort. Very affordable but Luxurious”</em><br>Video by Mikkay Luhh</figcaption>
           </figure>
         </div>
       </section>
