@@ -3,18 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Menu | D&D Coastal Calm Resort</title>
-    <meta name="description" content="Restaurant menu at D&D Coastal Calm Resort. Open daily 8:00 AM – 10:00 PM." />
+    <title>Event Menu | D&D Coastal Calm Resort</title>
+    <meta name="description" content="Event menu at D&D Coastal Calm Resort: pizza, pulutan, rice, beverages, beer and spirits. All prices in Philippine pesos." />
     <link rel="stylesheet" href="styles.css" />
     <style>
-      .menu-pages { display: grid; gap: 1.25rem; max-width: 920px; margin: 0 auto 1.5rem; }
-      .menu-page { background: #f6efe3; border: 1px solid #d8c9b0; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(22, 50, 74, 0.12); margin: 0; }
-      .menu-page img { width: 100%; height: auto; display: block; cursor: zoom-in; background: #efe6d6; }
-      .menu-caption { margin: 0.4rem 0 0; color: var(--muted); font-size: 0.9rem; }
-      #menu-zoom[hidden] { display: none; }
-      #menu-zoom { position: fixed; inset: 0; background: rgba(10, 22, 34, 0.92); z-index: 80; display: flex; align-items: center; justify-content: center; padding: 1rem; }
-      #menu-zoom img { max-width: 96vw; max-height: 96vh; width: auto; height: auto; }
-      #menu-zoom button { position: absolute; top: 12px; right: 16px; background: transparent; color: #fff; border: 0; font-size: 2rem; cursor: pointer; }
+      .event-menu { background: #f8f1e4; border: 1px solid #e0cfae; border-top: 6px solid #16324a; border-radius: 10px; padding: 1.5rem 1.25rem; box-shadow: 0 10px 30px rgba(22,50,74,.12); max-width: 960px; margin: 0 auto 1.5rem; color: #16324a; }
+      .event-menu h2 { margin: 0; font-size: clamp(1.8rem, 6vw, 2.4rem); letter-spacing: .04em; text-transform: uppercase; color: #16324a; }
+      .em-tag { margin: .2rem 0 .5rem; font-style: italic; color: #4d6a7f; }
+      .em-contact { margin: 0; font-size: .92rem; color: #4d6a7f; }
+      .em-contact a { color: #16324a; font-weight: 700; }
+      .em-cols { display: grid; grid-template-columns: 1fr; gap: 0 2.5rem; margin-top: 1rem; border-top: 2px solid #c9a24a; padding-top: .5rem; }
+      @media (min-width: 760px) { .em-cols { grid-template-columns: 1fr 1fr; } .event-menu { padding: 2rem 2.25rem; } }
+      .em-sec h3 { margin: 1.1rem 0 .35rem; padding-bottom: .3rem; border-bottom: 2px solid #c9a24a; font-size: 1.15rem; letter-spacing: .03em; text-transform: uppercase; color: #16324a; }
+      .em-sec ul { list-style: none; margin: 0; padding: 0; }
+      .em-sec li, .em-note { display: flex; justify-content: space-between; gap: 1rem; padding: .45rem 0; border-bottom: 1px solid #e6d9c0; font-size: 1.02rem; line-height: 1.35; }
+      .em-note { margin: 0; color: #2a6a9a; font-weight: 700; font-size: .98rem; }
+      .em-p, .em-note span:last-child { font-weight: 700; white-space: nowrap; }
+      .em-foot { margin-top: 1.5rem; background: #16324a; color: #fff; border-radius: 8px; text-align: center; padding: 1rem; }
+      .em-foot strong { display: block; color: #e2bf6a; font-size: 1.3rem; }
+      .em-foot p { margin: .25rem 0 0; font-size: .95rem; }
+      .em-small { margin: .9rem 0 0; text-align: center; font-size: .9rem; color: #4d6a7f; }
     </style>
   </head>
   <body>
@@ -38,28 +46,18 @@
       </div>
     </header>
     <main class="container home-grid">
-      <section class="card restaurant-card">
-        <h2>Restaurant Menu</h2>
-        <p class="restaurant-tagline">Good Food, Great View, Best Moments</p>
-        <p style="margin-top:0;color:var(--muted)">Open daily <strong>8:00 AM – 10:00 PM</strong>. Food can be enjoyed throughout the resort.</p>
-        <p style="color:var(--muted);font-size:0.95rem">+63 32 507 9856 · +63 956 504 3304 · +1 424 999-9910</p>
-        <p style="color:var(--muted);font-size:0.92rem">All prices are in Philippine pesos. Tap a page to enlarge.</p>
-      </section>
-      <div class="menu-pages">
-        <figure class="menu-page">
-          <img id="menu-p1" src="assets/menu/LZUTn.jpg?v=1" alt="Printed menu page 1" />
-          <figcaption class="menu-caption">Page 1 of 2</figcaption>
-        </figure>
-        <figure class="menu-page">
-          <img id="menu-p2" src="assets/menu/62Ha5.jpg?v=1" alt="Printed menu page 2" />
-          <figcaption class="menu-caption">Page 2 of 2</figcaption>
-        </figure>
-      </div>
+      <article class="event-menu" aria-labelledby="em-title">
+        <h2 id="em-title">Event Menu</h2>
+        <p class="em-tag">Party favorites made fresh for your special event</p>
+        <p class="em-contact"><a href="https://coastal-calm.com">coastal-calm.com</a> · +63 32 507 9856 · +63 956 504 3304 · +1 424 999-9910</p>
+        <div class="em-cols">
+          <div><section class="em-sec"><h3>Pizza</h3><p class="em-note"><span>14 inch (3–4 people)</span><span></span></p><ul><li><span>D&amp;D Special Pizza</span><span class="em-p">₱800</span></li><li><span>Meat Lovers</span><span class="em-p">₱780</span></li><li><span>Pepperoni</span><span class="em-p">₱720</span></li><li><span>Hawaiian</span><span class="em-p">₱720</span></li><li><span>Veggie Pizza</span><span class="em-p">₱680</span></li><li><span>Pizza Slice (any flavor)</span><span class="em-p">₱120</span></li></ul></section><section class="em-sec"><h3>Pulutan &amp; Sharing Plates</h3><ul><li><span>Sisig</span><span class="em-p">₱280</span></li><li><span>Buffalo Wings</span><span class="em-p">₱300</span></li><li><span>Calamares</span><span class="em-p">₱300</span></li><li><span>Gambas</span><span class="em-p">₱310</span></li><li><span>Spring Rolls</span><span class="em-p">₱250</span></li><li><span>French Fries</span><span class="em-p">₱180</span></li><li><span>Potato Wedges</span><span class="em-p">₱180</span></li><li><span>Onion Rings</span><span class="em-p">₱300</span></li></ul></section><section class="em-sec"><h3>Rice</h3><ul><li><span>Cup of Rice</span><span class="em-p">₱30</span></li><li><span>Cup of Garlic Rice</span><span class="em-p">₱45</span></li></ul></section></div>
+          <div><section class="em-sec"><h3>Beverages</h3><ul><li><span>Bottled Water 500 ml</span><span class="em-p">₱40</span></li><li><span>Small bottles: Pepsi, 7-Up, Mirinda</span><span class="em-p">₱50</span></li><li><span>Cans: Coke, Coke Zero, Royal, Sprite</span><span class="em-p">₱90</span></li><li><span>Coke 1.5 L</span><span class="em-p">₱180</span></li></ul></section><section class="em-sec"><h3>Coffee &amp; Tea</h3><ul><li><span>Brewed Coffee or Tea</span><span class="em-p">₱80</span></li></ul></section><section class="em-sec"><h3>Juices &amp; Iced Tea</h3><p class="em-note"><span>Glass / Pitcher</span><span>₱90 / ₱280</span></p><ul><li><span>Nestea Iced Tea</span><span class="em-p"></span></li><li><span>Four Seasons</span><span class="em-p"></span></li><li><span>Mango</span><span class="em-p"></span></li></ul></section><section class="em-sec"><h3>Beer &amp; Coolers</h3><ul><li><span>1 L Red Horse or San Miguel Beer</span><span class="em-p">₱190</span></li><li><span>Local bottled beers</span><span class="em-p">₱100</span></li><li><span>Tanduay Ice Cooler</span><span class="em-p">₱100</span></li><li><span>Kulafu, small / 1 L</span><span class="em-p">₱90 / ₱170</span></li></ul></section><section class="em-sec"><h3>Wine &amp; Spirits</h3><ul><li><span>House red or white, glass</span><span class="em-p">₱300</span></li><li><span>Spirits, 1 oz shot</span><span class="em-p">₱90</span></li><li><span>Spirits, bottle</span><span class="em-p">₱1,500</span></li></ul></section></div>
+        </div>
+        <div class="em-foot"><strong>Enjoy the celebration!</strong><p>Order and pay at the food counter · Dishes served while supplies last</p></div>
+        <p class="em-small"><em>Good Food, Great View, Best Moments</em> · All prices are in Philippine pesos</p>
+      </article>
     </main>
-    <div id="menu-zoom" hidden>
-      <button type="button" id="menu-zoom-close" aria-label="Close">×</button>
-      <img id="menu-zoom-img" alt="Enlarged menu page" />
-    </div>
     <footer class="site-footer">
       <div class="container footer-inner">
         <strong>D&D Coastal Calm Resort</strong>
@@ -72,26 +70,6 @@
     </footer>
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
-      (function () {
-        var zoom = document.getElementById("menu-zoom");
-        var zimg = document.getElementById("menu-zoom-img");
-        function openZoom(el) {
-          if (!el.src) return;
-          zimg.src = el.src;
-          zimg.alt = el.alt;
-          zoom.hidden = false;
-          document.body.style.overflow = "hidden";
-        }
-        function closeZoom() {
-          zoom.hidden = true;
-          document.body.style.overflow = "";
-        }
-        document.getElementById("menu-p1").addEventListener("click", function () { openZoom(this); });
-        document.getElementById("menu-p2").addEventListener("click", function () { openZoom(this); });
-        document.getElementById("menu-zoom-close").onclick = closeZoom;
-        zoom.addEventListener("click", function (e) { if (e.target === zoom) closeZoom(); });
-        document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeZoom(); });
-      })();
     </script>
   </body>
 </html>
