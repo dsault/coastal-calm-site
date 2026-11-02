@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Menu | D&D Coastal Calm Resort</title>
+    <meta name="description" content="Event menu at D&D Coastal Calm Resort: pizza, pulutan, rice, beverages, beer and spirits. All prices in Philippine pesos." />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .event-menu { background: #f8f1e4; border: 1px solid #e0cfae; border-top: 6px solid #16324a; border-radius: 10px; padding: 1.5rem 1.25rem; box-shadow: 0 10px 30px rgba(22,50,74,.12); max-width: 960px; margin: 0 auto 1.5rem; color: #16324a; }
+      .event-menu h2 { margin: 0; font-size: clamp(1.8rem, 6vw, 2.4rem); letter-spacing: .04em; text-transform: uppercase; color: #16324a; }
+      .em-tag { margin: .2rem 0 .5rem; font-style: italic; color: #4d6a7f; }
+      .em-contact { margin: 0; font-size: .92rem; color: #4d6a7f; }
+      .em-contact a { color: #16324a; font-weight: 700; }
+      .em-cols { display: grid; grid-template-columns: 1fr; gap: 0 2.5rem; margin-top: 1rem; border-top: 2px solid #c9a24a; padding-top: .5rem; }
+      @media (min-width: 760px) { .em-cols { grid-template-columns: 1fr 1fr; } .event-menu { padding: 2rem 2.25rem; } }
+      .em-sec h3 { margin: 1.1rem 0 .35rem; padding-bottom: .3rem; border-bottom: 2px solid #c9a24a; font-size: 1.15rem; letter-spacing: .03em; text-transform: uppercase; color: #16324a; }
+      .em-sec ul { list-style: none; margin: 0; padding: 0; }
+      .em-sec li, .em-note { display: flex; justify-content: space-between; gap: 1rem; padding: .45rem 0; border-bottom: 1px solid #e6d9c0; font-size: 1.02rem; line-height: 1.35; }
+      .em-note { margin: 0; color: #2a6a9a; font-weight: 700; font-size: .98rem; }
+      .em-p, .em-note span:last-child { font-weight: 700; white-space: nowrap; }
+      .em-foot { margin-top: 1.5rem; background: #16324a; color: #fff; border-radius: 8px; text-align: center; padding: 1rem; }
+      .em-foot strong { display: block; color: #e2bf6a; font-size: 1.3rem; }
+      .em-foot p { margin: .25rem 0 0; font-size: .95rem; }
+      .em-small { margin: .9rem 0 0; text-align: center; font-size: .9rem; color: #4d6a7f; }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html" class="logo-link">
+          <img src="assets/pictures/FullLogo_Transparent_NoBuffer.png" alt="D&D Coastal Calm Resort logo" class="logo" />
+          <div class="logo-text">D&D Coastal Calm Resort<span>Camotes Islands, Cebu</span></div>
+        </a>
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="rooms.html">Rooms</a>
+          <a href="events.html">Events</a>
+          <a href="menu.html" aria-current="page">Menu</a>
+          <a href="policies.html">Policies</a>
+          <a href="contact.html">Contact</a>
+          <a href="https://letsbook.me/booking/ddcoastalcalmresort" target="_blank" rel="noopener">Booking</a>
+        </nav>
+      </div>
+    </header>
+    <main class="container home-grid">
+      <article class="event-menu" aria-labelledby="em-title">
+        <h2 id="em-title">Event Menu</h2>
+        <p class="em-tag">Party favorites made fresh for your special event</p>
+        <p class="em-contact"><a href="https://coastal-calm.com">coastal-calm.com</a> · +63 32 507 9856 · +63 956 504 3304 · +1 424 999-9910</p>
+        <div class="em-cols">
+          <div><section class="em-sec"><h3>Pizza</h3><p class="em-note"><span>14 inch (3–4 people)</span><span></span></p><ul><li><span>D&amp;D Special Pizza</span><span class="em-p">₱800</span></li><li><span>Meat Lovers</span><span class="em-p">₱780</span></li><li><span>Pepperoni</span><span class="em-p">₱720</span></li><li><span>Hawaiian</span><span class="em-p">₱720</span></li><li><span>Veggie Pizza</span><span class="em-p">₱680</span></li><li><span>Pizza Slice (any flavor)</span><span class="em-p">₱120</span></li></ul></section><section class="em-sec"><h3>Pulutan &amp; Sharing Plates</h3><ul><li><span>Sisig</span><span class="em-p">₱280</span></li><li><span>Buffalo Wings</span><span class="em-p">₱300</span></li><li><span>Calamares</span><span class="em-p">₱300</span></li><li><span>Gambas</span><span class="em-p">₱310</span></li><li><span>Spring Rolls</span><span class="em-p">₱250</span></li><li><span>French Fries</span><span class="em-p">₱180</span></li><li><span>Potato Wedges</span><span class="em-p">₱180</span></li><li><span>Onion Rings</span><span class="em-p">₱300</span></li></ul></section><section class="em-sec"><h3>Rice</h3><ul><li><span>Cup of Rice</span><span class="em-p">₱30</span></li><li><span>Cup of Garlic Rice</span><span class="em-p">₱45</span></li></ul></section></div>
+          <div><section class="em-sec"><h3>Beverages</h3><ul><li><span>Bottled Water 500 ml</span><span class="em-p">₱40</span></li><li><span>Small bottles: Pepsi, 7-Up, Mirinda</span><span class="em-p">₱50</span></li><li><span>Cans: Coke, Coke Zero, Royal, Sprite</span><span class="em-p">₱90</span></li><li><span>Coke 1.5 L</span><span class="em-p">₱180</span></li></ul></section><section class="em-sec"><h3>Coffee &amp; Tea</h3><ul><li><span>Brewed Coffee or Tea</span><span class="em-p">₱80</span></li></ul></section><section class="em-sec"><h3>Juices &amp; Iced Tea</h3><p class="em-note"><span>Glass / Pitcher</span><span>₱90 / ₱280</span></p><ul><li><span>Nestea Iced Tea</span><span class="em-p"></span></li><li><span>Four Seasons</span><span class="em-p"></span></li><li><span>Mango</span><span class="em-p"></span></li></ul></section><section class="em-sec"><h3>Beer &amp; Coolers</h3><ul><li><span>1 L Red Horse or San Miguel Beer</span><span class="em-p">₱190</span></li><li><span>Local bottled beers</span><span class="em-p">₱100</span></li><li><span>Tanduay Ice Cooler</span><span class="em-p">₱100</span></li><li><span>Kulafu, small / 1 L</span><span class="em-p">₱90 / ₱170</span></li></ul></section><section class="em-sec"><h3>Wine &amp; Spirits</h3><ul><li><span>House red or white, glass</span><span class="em-p">₱300</span></li><li><span>Spirits, 1 oz shot</span><span class="em-p">₱90</span></li><li><span>Spirits, bottle</span><span class="em-p">₱1,500</span></li></ul></section></div>
+        </div>
+        <div class="em-foot"><strong>Enjoy the celebration!</strong><p>Order and pay at the food counter · Dishes served while supplies last</p></div>
+        <p class="em-small"><em>Good Food, Great View, Best Moments</em> · All prices are in Philippine pesos</p>
+      </article>
+    </main>
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <strong>D&D Coastal Calm Resort</strong>
+        <p class="footer-location">Mercedes, Poro · Camotes Islands, Cebu, Philippines</p>
+        <p><a href="https://letsbook.me/booking/ddcoastalcalmresort" target="_blank" rel="noopener">Book a stay</a> · <a href="menu.html">Menu</a> · <a href="events.html">Events</a> · <a href="gallery.html">Gallery</a> · <a href="rooms.html">Rooms</a> · <a href="policies.html">Policies</a> · <a href="about.html">Our Story</a></p>
+        <p style="margin-top: 0.75rem;"><a href="https://www.facebook.com/profile.php?id=61582908533946" target="_blank" rel="noopener">Facebook</a> · <a href="https://www.youtube.com/@d_d_coastal_calm" target="_blank" rel="noopener">YouTube</a></p>
+        <p><a href="contact.html">Contact</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="policies.html">House rules</a></p>
+        <small>© <span id="year"></span> D&D Coastal Calm Resort</small>
+      </div>
+    </footer>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
