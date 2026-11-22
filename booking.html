@@ -6,7 +6,6 @@
     <title>Booking | D&D Coastal Calm Resort</title>
     <meta name="description" content="Book D&D Coastal Calm Resort, Camotes Islands, through our booking partner." />
     <link rel="stylesheet" href="styles.css" />
-    <meta http-equiv="refresh" content="0;url=https://letsbook.me/booking/ddcoastalcalmresort" />
   </head>
   <body>
     <header class="site-header">
@@ -32,40 +31,13 @@
       <section class="card">
         <h2>Book a stay</h2>
         <p style="color: var(--muted); margin-top: 0;">Rooms are reserved through our booking partner. Choose dates and a room type there.</p>
-        <p><a class="btn" href="https://letsbook.me/booking/ddcoastalcalmresort" target="_blank" rel="noopener">Book on Letsbook</a></p>
-        <p style="margin-top: 1.5rem;">Tell us your preferred dates and room type if you would rather inquire first. We will confirm availability by phone, then in writing. The confirmation will name the rate sold (Plan Ahead, Opening Special, flexible, Senior/PWD, or monthly) and the cancel rule that goes with it. A credit card holds the reservation. Non-refundable rates, including Plan Ahead and the Opening Special, are paid when booked and are not cash-refundable after confirmation. If we confirm 15 or more days before arrival, a 24-hour cooling-off still applies, with a full refund if you cancel in that window. Flexible bookings can be cancelled free until 3:00 PM, three days before check-in. After that, two nights are charged, or the whole stay if it is shorter. Peak dates need two nights; see the <a href="policies.html">peak calendar</a>. A no-show is charged in full. Breakfast is ₱250 per person per night, added at booking, and is not discounted. Check-in 3:00 PM, check-out 11:00 AM. No smoking in rooms (₱5,000 cleaning fee if smoke is found); no pets; no dried fish in rooms.</p>
-        <p class="rate-note">Rates listed below are the <strong>non-refundable Plan Ahead rate (10% off)</strong> when you book 15 or more days before arrival. That rate is paid when booked and is not cash-refundable after confirmation. Inside 15 days the flexible rate is 10% higher. Standard rooms also have an Opening Special of ₱2,000 non-refundable and ₱2,200 flexible, bookable through 31 January 2027, for stays through 31 March 2027 except peak dates.</p>
-        <form class="booking-form" action="#" method="post">
-          <label for="name">Full name</label>
-          <input id="name" name="name" type="text" required />
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" required />
-          <label for="phone">Phone / WhatsApp</label>
-          <input id="phone" name="phone" type="tel" />
-          <label for="checkin">Check-in date</label>
-          <input id="checkin" name="checkin" type="date" required />
-          <label for="checkout">Check-out date</label>
-          <input id="checkout" name="checkout" type="date" required />
-          <p id="peak-msg" class="form-note" role="status"></p>
-          <label for="roomType">Room type</label>
-          <select id="roomType" name="roomType" required>
-            <option value="">Select a room</option>
-            <option>Standard — Opening Special ₱2,000 non-refundable / ₱2,200 flexible</option>
-            <option>Standard with Balcony — ₱2,700 plan ahead</option>
-            <option>Deluxe with Ocean View — ₱3,600 plan ahead</option>
-            <option>Deluxe with Balcony — ₱3,600 plan ahead</option>
-            <option>Deluxe with Spa Tub — ₱3,600 plan ahead</option>
-            <option>Deluxe with Spa Tub & Balcony — ₱3,870 plan ahead</option>
-            <option>Presidential — ₱4,050 plan ahead</option>
-          </select>
-          <label for="guests">Number of guests</label>
-          <input id="guests" name="guests" type="number" min="1" max="5" value="2" />
-          <p class="form-note">Standard: max 2 adults + 1 child. Deluxe and Presidential: max 5 guests.</p>
-          <label for="notes">Special requests</label>
-          <textarea id="notes" name="notes" rows="4" placeholder="Let us know anything we should prepare..."></textarea>
-          <button type="submit" class="btn">Submit Booking Request</button>
-        </form>
-        <p class="form-note">This form is currently a demo. I can connect it to email or a simple backend so you actually receive the requests.</p>
+        <p><a class="btn" href="https://letsbook.me/booking/ddcoastalcalmresort" target="_blank" rel="noopener">Book now</a></p>
+        <ul class="policy-list">
+          <li><strong>Phone:</strong> <a href="tel:+639561729081">+63 956 172 9081</a></li>
+          <li><strong>Facebook:</strong> <a href="https://www.facebook.com/profile.php?id=61582908533946" target="_blank" rel="noopener">Message us on Facebook</a></li>
+        </ul>
+        <p style="margin-top: 1.5rem;">If you would rather inquire first, call or message us. We will confirm availability by phone, then in writing. The confirmation will name the rate sold (Plan Ahead, Opening Special, flexible, Senior/PWD, or monthly) and the cancel rule that goes with it. A credit card holds the reservation. Non-refundable rates, including Plan Ahead and the Opening Special, are paid when booked and are not cash-refundable after confirmation. If we confirm 15 or more days before arrival, a 24-hour cooling-off still applies, with a full refund if you cancel in that window. Flexible bookings can be cancelled free until 3:00 PM, three days before check-in. After that, two nights are charged, or the whole stay if it is shorter. Peak dates need two nights; see the <a href="policies.html">peak calendar</a>. A no-show is charged in full. Breakfast is ₱250 per person per night, added at booking, and is not discounted. Check-in 3:00 PM, check-out 11:00 AM. No smoking in rooms (₱5,000 cleaning fee if smoke is found); no pets; no dried fish in rooms.</p>
+        <p class="rate-note">The <strong>non-refundable Plan Ahead rate (10% off)</strong> applies when you book 15 or more days before arrival. That rate is paid when booked and is not cash-refundable after confirmation. Inside 15 days the flexible rate is 10% higher. Standard rooms also have an Opening Special of ₱2,000 non-refundable and ₱2,200 flexible, bookable through 31 January 2027, for stays through 31 March 2027 except peak dates. See <a href="rooms.html">Rooms</a> for each room type.</p>
       </section>
 
       <section class="card">
@@ -98,56 +70,6 @@
         <small>© <span id="year"></span> D&D Coastal Calm Resort</small>
       </div>
     </footer>
-    <script src="peak-dates.js"></script>
-    <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
-      (function () {
-        var form = document.querySelector(".booking-form");
-        var checkin = document.getElementById("checkin");
-        var checkout = document.getElementById("checkout");
-        var msg = document.getElementById("peak-msg");
-        if (!form || !window.peakStay) return;
-
-        function todayIso() {
-          var d = new Date();
-          d.setHours(12, 0, 0, 0);
-          return window.peakStay.addDays(
-            d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0"),
-            0,
-          );
-        }
-        checkin.min = todayIso();
-
-        function sync() {
-          if (!checkin.value) return;
-          var minOut = window.peakStay.minCheckout(checkin.value);
-          checkout.min = minOut;
-          if (checkout.value && checkout.value < minOut) checkout.value = minOut;
-          var result = window.peakStay.validate(checkin.value, checkout.value);
-          if (!result.ok) {
-            msg.textContent = result.error;
-            msg.style.color = "#9b1c1c";
-          } else if (result.peakNames.length) {
-            msg.textContent =
-              "Peak dates on this stay: " + result.peakNames.join(", ") + ". " + result.minNights + "-night minimum applies.";
-            msg.style.color = "";
-          } else {
-            msg.textContent = "";
-          }
-        }
-
-        checkin.addEventListener("change", sync);
-        checkout.addEventListener("change", sync);
-        form.addEventListener("submit", function (e) {
-          var result = window.peakStay.validate(checkin.value, checkout.value);
-          if (!result.ok) {
-            e.preventDefault();
-            msg.textContent = result.error;
-            msg.style.color = "#9b1c1c";
-            checkout.focus();
-          }
-        });
-      })();
-    </script>
+    <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
   </body>
 </html>

@@ -11,3 +11,6 @@ node_modules
 # Menu and other PDFs must not be published as downloadable files.
 *.pdf
 **/*.pdf
+
+# Internal ordering test page; do not publish.
+order-test.html
