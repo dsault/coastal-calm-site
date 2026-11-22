@@ -41,33 +41,3 @@ function toggleHeroSound() {
   if (video.muted) { video.muted = false; icon.textContent = "\uD83D\uDD0A"; }
   else { video.muted = true; icon.textContent = "\uD83D\uDD07"; }
 }
-const commentsList = document.getElementById("comments-list");
-const commentForm = document.getElementById("comment-form");
-const commentThanks = document.getElementById("comment-thanks");
-function escapeHtml(value) {
-  return String(value).replace(/[&<>"']/g, (ch) => ({
-    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
-  }[ch]));
-}
-function addCommentCard(name, from, text) {
-  const article = document.createElement("article");
-  article.className = "comment-card";
-  article.innerHTML =
-    '<div class="comment-stars" aria-label="Guest comment">\u2605\u2605\u2605\u2605\u2605</div>' +
-    "<p>\u201C" + escapeHtml(text) + "\u201D</p>" +
-    "<footer><strong>" + escapeHtml(name) + "</strong><span>" +
-    (from ? escapeHtml(from) : "Guest") +
-    "</span></footer>";
-  commentsList.prepend(article);
-}
-commentForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const name = document.getElementById("comment-name").value.trim();
-  const from = document.getElementById("comment-from").value.trim();
-  const text = document.getElementById("comment-text").value.trim();
-  if (!name || !text) return;
-  addCommentCard(name, from, text);
-  commentForm.reset();
-  commentThanks.classList.add("show");
-  commentThanks.scrollIntoView({ behavior: "smooth", block: "nearest" });
-});

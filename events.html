@@ -125,11 +125,11 @@
           <label for="event-notes">Additional details</label>
           <textarea id="event-notes" name="notes" rows="4" placeholder="Tell us more about your event, catering needs, or special requests..."></textarea>
           <p style="font-weight:600;margin:0.4rem 0 0.2rem;">Send this inquiry by</p>
-          <label style="font-weight:500;"><input type="radio" name="contact-method" value="whatsapp" checked /> WhatsApp — +63 956 504 3304</label>
+          <label style="font-weight:500;"><input type="radio" name="contact-method" value="whatsapp" checked /> WhatsApp — +63 956 172 9081</label>
           <label style="font-weight:500;"><input type="radio" name="contact-method" value="email" /> Email — info@coastal-calm.com</label>
           <button type="submit" class="btn">Send Inquiry</button>
         </form>
-        <p class="form-note" style="margin-top: 1rem;">Choose WhatsApp or email. Submit opens that app with your details ready to send to +63 956 504 3304 or info@coastal-calm.com.</p>
+        <p class="form-note" style="margin-top: 1rem;">Choose WhatsApp or email. Submit opens that app with your details ready to send to +63 956 172 9081 or info@coastal-calm.com.</p>
       </section>
 
       <section class="card">
@@ -186,7 +186,7 @@
             encodeURIComponent("Event inquiry — " + val("event-name")) +
             "&body=" + encodeURIComponent(text);
         } else {
-          window.location.href = "https://api.whatsapp.com/send?phone=639565043304&text=" + encodeURIComponent(text);
+          window.location.href = "https://api.whatsapp.com/send?phone=639561729081&text=" + encodeURIComponent(text);
         }
       });
     </script>
